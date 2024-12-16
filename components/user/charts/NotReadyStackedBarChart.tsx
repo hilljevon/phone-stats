@@ -27,7 +27,7 @@ export const notReadyCategorized = [
         "month": "Jan-24",
         "below": 10,
         "middle": 19,
-        "above": 51
+        "above": 51,
     },
     {
         "month": "Feb-24",
@@ -85,6 +85,10 @@ export const notReadyCategorized = [
     }
 ]
 const chartConfig = {
+    above: {
+        label: "Above",
+        color: "hsl(var(--chart-3))",
+    },
     below: {
         label: "Below",
         color: "hsl(var(--chart-1))",
@@ -93,10 +97,7 @@ const chartConfig = {
         label: "Middle",
         color: "hsl(var(--chart-2))",
     },
-    above: {
-        label: "Above",
-        color: "hsl(var(--chart-3))",
-    },
+
 } satisfies ChartConfig
 
 interface StackedBarChartInterface {
@@ -134,7 +135,6 @@ export function NotReadyStackedBarChart() {
                             tickFormatter={(value) => value.slice(0, 3)}
                         />
                         <ChartTooltip content={<ChartTooltipContent hideLabel />} />
-                        <ChartLegend content={<ChartLegendContent />} />
                         <Bar
                             dataKey="below"
                             stackId="a"
@@ -153,25 +153,26 @@ export function NotReadyStackedBarChart() {
                             fill="#89b5b4"
                             radius={[4, 4, 0, 0]}
                         />
-                        <ReferenceLine className="font-bold m-4" y={sliderValue} stroke="red" strokeWidth={2} />
+                        <ChartLegend content={<ChartLegendContent />} />
+                        {/* <ReferenceLine className="font-bold m-4" y={sliderValue} stroke="red" strokeWidth={2} /> */}
                     </BarChart>
                 </ChartContainer>
             </CardContent>
             <CardFooter className="flex-col items-start gap-2 text-sm">
-                <div className="flex gap-2 font-medium leading-none">
+                {/* <div className="flex gap-2 font-medium leading-none">
                     Target: <span className="text-red-500 font-bold">{sliderValue}</span>
                 </div>
                 <div className="leading-none text-muted-foreground">
                     Adjust slider below for target % goal.
-                </div>
+                </div> */}
             </CardFooter>
-            <Slider
+            {/* <Slider
                 value={[sliderValue]}
                 defaultValue={[sliderValue]}
                 max={80}
                 step={1}
                 onValueChange={handleSliderChange}
-            />
+            /> */}
 
         </Card>
 
