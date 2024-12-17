@@ -1,6 +1,6 @@
 "use client"
 
-import { TrendingUp } from "lucide-react"
+import { TrendingDown, TrendingUp } from "lucide-react"
 import { Bar, BarChart, CartesianGrid, Rectangle, ReferenceLine, XAxis } from "recharts"
 import {
     Card,
@@ -20,7 +20,7 @@ import {
 } from "@/components/ui/chart"
 import { Slider } from "@/components/ui/slider"
 import { useEffect, useState } from "react"
-import { organizeBarChartData } from "@/lib/helpers"
+import { handleBarClickAnalytics, organizeBarChartData } from "@/lib/helpers"
 
 const chartData = [
     { month: "January", desktop: 186, mobile: 80 },
@@ -117,22 +117,60 @@ interface AnsweredCallsInterface {
     month: string,
     val: number
 }
-
+const abovePercentAverage = 53.1
+const belowPercentAverage = 7.6
+const midPercentAverage = 17.4
+interface AnsweredCallAnalyticsInterface {
+    differenceInAbovePercent: number,
+    differenceInBelowPercent: number,
+    differenceInMidPercent: number
+}
 export function AnsweredCallsStackedBarChart() {
     // const [sliderValue, setSliderValue] = useState(60); // 
-    const [activeBarIndex, setActiveBarIndex] = useState(4)
+    const [activeBarIndex, setActiveBarIndex] = useState<number | undefined>(undefined)
+    const [answeredCallAnalytics, setAnsweredCallAnalytics] = useState<AnsweredCallAnalyticsInterface | null>(null)
+    const [currentData, setCurrentData] = useState<StackedBarChartInterface | undefined>(undefined)
     // const handleSliderChange = (value: number[]) => {
     //     setSliderValue(value[0]); // Update slider value
     // };
     const handleBarClick = (data: StackedBarChartInterface, idx: number) => {
         setActiveBarIndex(idx)
+        setCurrentData(answeredCallsCategorized[idx])
+        const analytics = handleBarClickAnalytics(data, idx, "answeredCalls")
+        setAnsweredCallAnalytics(analytics)
     }
     return (
         <Card>
-            <CardHeader>
-                <CardTitle>Answered Calls</CardTitle>
-                <CardDescription> Trending up by 5.2% this month <TrendingUp className="inline h-4 w-4" /></CardDescription>
-            </CardHeader>
+            {currentData == undefined ? (
+                <CardHeader>
+                    <CardTitle>
+                        Answered Calls
+                    </CardTitle>
+                    <CardDescription>
+                        Double click a month to view analytics
+                    </CardDescription>
+                </CardHeader>
+            ) : (
+                <CardHeader>
+                    {answeredCallAnalytics && (
+                        <>
+                            <CardTitle>
+                                Answered Calls - {currentData.month}
+                            </CardTitle>
+                            {(currentData.above - abovePercentAverage) > 0 ? (
+                                <CardDescription>
+                                    <span className="text-green-500 text-sm"> Trending up {Math.floor(currentData.above - abovePercentAverage)}% this month <TrendingUp className="inline h-4 w-4" /> </span><span className="text-xs from-neutral-200"> *based on total # above average.</span>
+                                </CardDescription>
+                            ) : (
+                                <CardDescription className="text-red-500">
+                                    Trending down {Math.floor(currentData.above - abovePercentAverage)}% this month <TrendingDown className="inline h-4 w-4" />
+                                </CardDescription>
+                            )}
+
+                        </>
+                    )}
+                </CardHeader>
+            )}
             <CardContent>
                 <ChartContainer config={chartConfig}>
                     <BarChart accessibilityLayer data={answeredCallsCategorized}>
@@ -218,12 +256,27 @@ export function AnsweredCallsStackedBarChart() {
                 </ChartContainer>
             </CardContent>
             <CardFooter className="flex-col items-start gap-2 text-sm">
-                {/* <div className="flex gap-2 font-medium leading-none">
-                    Target: <span className="text-red-500 font-bold">{sliderValue}</span>
-                </div>
-                <div className="leading-none text-muted-foreground">
-                    Adjust slider below for target % goal.
-                </div> */}
+                {answeredCallAnalytics != null ? (
+                    <>
+                        {/* <div className="flex gap-2 font-medium leading-none">
+                            Data
+                        </div> */}
+                        <div className="leading-none text-muted-foreground">
+                            Compared to the previous month, there is a <span className="text-green-600">
+                                {Math.floor(answeredCallAnalytics.differenceInAbovePercent)}% change for answered calls above average</span>,<span> {Math.floor(answeredCallAnalytics.differenceInMidPercent)}% change for average count</span>, and <span>{Math.floor(answeredCallAnalytics.differenceInBelowPercent)}% change in those below average</span>.
+                        </div>
+                    </>
+                ) : (
+                    <>
+                        <div className="flex gap-2 leading-none font-bold">
+                            Benchmarks:
+                        </div>
+                        <div className="leading-none text-muted-foreground font-semibold">
+                            Above Average: <span className="text-green-700 underline">80% and above</span>. Average: <span className="text-yellow-600 underline">70% - 79%</span> . Below Average: <span className="text-red-600 underline">69% and below</span>.
+                        </div>
+                    </>
+                )}
+
             </CardFooter>
             {/* <Slider
                 value={[sliderValue]}

@@ -1,7 +1,7 @@
 "use client"
 
 import { TrendingUp } from "lucide-react"
-import { Bar, BarChart, CartesianGrid, ReferenceLine, XAxis } from "recharts"
+import { Bar, BarChart, CartesianGrid, Rectangle, ReferenceLine, XAxis } from "recharts"
 
 import {
     Card,
@@ -116,7 +116,10 @@ export function NotReadyStackedBarChart() {
     const handleSliderChange = (value: number[]) => {
         setSliderValue(value[0]); // Update slider value
     };
-
+    const handleBarClick = (data: StackedBarChartInterface, idx: number) => {
+        setActiveBarIndex(idx)
+    }
+    const [activeBarIndex, setActiveBarIndex] = useState(4)
     return (
         <Card>
             <CardHeader>
@@ -140,18 +143,67 @@ export function NotReadyStackedBarChart() {
                             stackId="a"
                             fill="#e06666"
                             radius={[0, 0, 4, 4]}
+                            activeIndex={activeBarIndex}
+                            onClick={(data, idx) => {
+                                handleBarClick(data, idx)
+                            }}
+                            activeBar={({ ...props }) => {
+                                return (
+                                    <Rectangle
+                                        {...props}
+                                        fillOpacity={0.8}
+                                        stroke={"#3d85c6"}
+                                        strokeDasharray={4}
+                                        strokeDashoffset={4}
+                                        strokeWidth={2}
+                                    />
+                                )
+                            }}
                         />
                         <Bar
                             dataKey="middle"
                             stackId="a"
                             fill="#f6b26b"
                             radius={[0, 0, 0, 0]}
+                            onClick={(data, idx) => {
+                                handleBarClick(data, idx)
+                            }}
+                            activeIndex={activeBarIndex}
+                            activeBar={({ ...props }) => {
+                                return (
+
+                                    <Rectangle
+                                        {...props}
+                                        fillOpacity={0.8}
+                                        stroke={"#3d85c6"}
+                                        strokeDasharray={4}
+                                        strokeDashoffset={0}
+                                        strokeWidth={2}
+                                    />
+                                )
+                            }}
                         />
                         <Bar
                             dataKey="above"
                             stackId="a"
                             fill="#89b5b4"
                             radius={[4, 4, 0, 0]}
+                            onClick={(data, idx) => {
+                                handleBarClick(data, idx)
+                            }}
+                            activeIndex={activeBarIndex}
+                            activeBar={({ ...props }) => {
+                                return (
+                                    <Rectangle
+                                        {...props}
+                                        fillOpacity={0.8}
+                                        stroke={"#3d85c6"}
+                                        strokeDasharray={4}
+                                        strokeDashoffset={4}
+                                        strokeWidth={2}
+                                    />
+                                )
+                            }}
                         />
                         <ChartLegend content={<ChartLegendContent />} />
                         {/* <ReferenceLine className="font-bold m-4" y={sliderValue} stroke="red" strokeWidth={2} /> */}
