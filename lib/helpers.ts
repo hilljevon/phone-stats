@@ -1,3 +1,5 @@
+import { EmployeeType } from "@/components/user/EmployeeTable/EmployeeColumns"
+
 interface StackedBarChartInterface {
     month: string,
     below: number,
@@ -199,4 +201,19 @@ export const getAverageFromMonthValArray = async (month: string) => {
     const avg = sum
     console.log("MONTH", month)
     console.log("SUM HERE", sum)
+}
+
+export const handleEmployeeData = (data: EmployeeType) => {
+    const months = ["Jan-24", "Feb-24", "Mar-24", "Apr-24", "May-24", "Jun-24", "Jul-24", "Aug-24", "Sep-24", "Oct-24"]
+    const callMetrics = ["Answered Call %", "Not Ready %"]
+    const phoneData = []
+    for (let month of months) {
+        const curr: any = { month: month, "Answered Call %": 0, "Not Ready %": 0 }
+        for (let metric of callMetrics) {
+            const currentKey = `${month} ${metric}`
+            curr[metric] = data[currentKey as keyof EmployeeType]
+        }
+        phoneData.push(curr)
+    }
+    return phoneData
 }

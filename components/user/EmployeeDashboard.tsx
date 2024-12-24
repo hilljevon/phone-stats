@@ -1,38 +1,59 @@
 "use client"
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import {
     Accordion,
     AccordionContent,
     AccordionItem,
     AccordionTrigger,
 } from "@/components/ui/accordion"
+import { EmployeeDataTable } from './EmployeeTable/EmployeeDataTable'
+import { employeeColumns, EmployeeType } from './EmployeeTable/EmployeeColumns'
+import { EmployeeSelectCombobox } from './EmployeeSelectCombobox'
+import { EmployeeMultiBarChart } from './employeeCharts/EmployeeMultiBarChart'
 const EmployeeDashboard = () => {
+    const [allCases, setAllCases] = useState<EmployeeType[]>([])
+    const [employeeValue, setEmployeeValue] = useState("")
+    const [currentData, setCurrentData] = useState<EmployeeType | null>(null)
     useEffect(() => {
-        fetch("/data/case_census.json")
-            .then((response) => {
-                if (!response.ok) {
-                    throw new Error("Unable to fetch case census data!")
-                }
-                return response.json()
-            })
-            .then((jsonData) => {
-                console.log("JSON DATA HERE", jsonData)
-            })
-            .catch((error) => console.log("Unable to fetch JSON data"))
+        const fetchData = async () => {
+            const res = await fetch("/data/complete_w_attendance.json");
+            const json = await res.json();
+            setAllCases(json);
+        };
+        fetchData();
     }, [])
+    useEffect(() => {
+        if (allCases) {
+            const employeeValInt = parseInt(employeeValue)
+            setCurrentData(allCases[employeeValInt])
+        }
+
+    }, [employeeValue])
     return (
         <>
             <div className="grid auto-rows-min gap-4 md:grid-cols-4">
                 <div className="col-span-full">
+                    <div className="flex justify-center items-center w-full">
+                        <EmployeeSelectCombobox value={employeeValue} setValue={setEmployeeValue} />
+                    </div>
+                </div>
+                <div className="col-span-full">
                     <Accordion type="single" collapsible>
                         <AccordionItem value="item-1">
-                            <AccordionTrigger>Employee Table Overview</AccordionTrigger>
+                            <AccordionTrigger>All Employees</AccordionTrigger>
                             <AccordionContent>
-                                Yes. It adheres to the WAI-ARIA design pattern.
+                                {allCases && (
+                                    <EmployeeDataTable columns={employeeColumns} data={allCases} />
+                                )}
                             </AccordionContent>
                         </AccordionItem>
                     </Accordion>
                 </div>
+                {currentData && (
+                    <div className="col-span-2">
+                        <EmployeeMultiBarChart currentData={currentData} />
+                    </div>
+                )}
             </div>
         </>
     )

@@ -1,6 +1,8 @@
 "use client"
 
+import { Button } from "@/components/ui/button"
 import { ColumnDef } from "@tanstack/react-table"
+import { ArrowUpDown } from "lucide-react"
 
 // This type is used to define the shape of our data.
 // You can use a Zod schema here if you want.
@@ -49,10 +51,20 @@ export interface EmployeeType {
 }
 
 
-export const columns: ColumnDef<EmployeeType>[] = [
+export const employeeColumns: ColumnDef<EmployeeType>[] = [
     {
         accessorKey: "Employee ID",
-        header: "Employee",
+        header: ({ column }) => {
+            return (
+                <Button
+                    variant="ghost"
+                    onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+                >
+                    Employee ID
+                    <ArrowUpDown className="ml-2 h-4 w-4" />
+                </Button>
+            )
+        },
     },
     {
         accessorKey: "Oct-24 Not Ready %",
@@ -61,5 +73,13 @@ export const columns: ColumnDef<EmployeeType>[] = [
     {
         accessorKey: "Oct-24 Answered Call %",
         header: "Oct Answered Call",
+    },
+    {
+        accessorKey: "Oct-24 Tardies",
+        header: "Oct Tardies",
+    },
+    {
+        accessorKey: "Oct-24 Absences",
+        header: "Oct Absences",
     },
 ]
