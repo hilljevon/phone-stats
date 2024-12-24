@@ -83,15 +83,15 @@ const metricCategories = ["answeredCallPercent", "month", "notReadyPercent", "ab
 //         rank3: 
 //     }
 // ]
-const chartConfig = {
+const chartConfig2 = {
     visitors: {
         label: "Cases",
     },
     cases: {
         label: "Cases",
-        color: "hsl(var(--chart-5))",
+        color: "#03a9f4",
     },
-} satisfies ChartConfig
+}
 interface CaseCensusInterface {
     date: string,
     cases: number
@@ -135,7 +135,7 @@ export function CaseCensusStackedArea() {
                 <div className="grid flex-1 gap-1 text-center sm:text-left">
                     <CardTitle>Case Census</CardTitle>
                     <CardDescription>
-                        <span className="text-orange-600 font-semibold"> Cases </span> through 2024
+                        <span className="text-[#03a9f4] font-semibold"> Cases </span> through 2024
                     </CardDescription>
                 </div>
                 <Select value={timeRange} onValueChange={setTimeRange}>
@@ -160,7 +160,7 @@ export function CaseCensusStackedArea() {
             </CardHeader>
             <CardContent className="px-2 pt-4 sm:px-6 sm:pt-6">
                 <ChartContainer
-                    config={chartConfig}
+                    config={chartConfig2}
                     className="aspect-auto h-[250px] w-full"
                 >
                     <AreaChart data={filteredData}>
@@ -177,7 +177,7 @@ export function CaseCensusStackedArea() {
                                     stopOpacity={0.1}
                                 />
                             </linearGradient>
-                            <linearGradient id="filltardiesSum" x1="0" y1="0" x2="0" y2="1">
+                            <linearGradient id="fillcases" x1="0" y1="0" x2="0" y2="1">
                                 <stop
                                     offset="5%"
                                     stopColor="var(--color-cases)"

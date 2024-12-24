@@ -1,3 +1,4 @@
+"use client"
 import * as React from "react"
 import { GalleryVerticalEnd, PhoneCall, PhoneIncoming } from "lucide-react"
 import {
@@ -12,50 +13,48 @@ import {
     SidebarMenuSubButton,
     SidebarMenuSubItem,
 } from "@/components/ui/sidebar"
+import { usePathname } from "next/navigation"
 // This is sample data.
 const data = {
     navMain: [
         {
             title: "Overview",
-            url: "#",
+            url: "/",
             items: [
                 {
                     title: "Dashboard",
-                    url: "#",
+                    url: "/",
                     isActive: true,
                 },
                 {
-                    title: "Charts",
-                    url: "#",
-                },
-                {
-                    title: "Stats",
-                    url: "#",
+                    title: "Employees",
+                    url: "/employees",
                 },
             ],
         },
-        {
-            title: "In Depth",
-            url: "#",
-            items: [
-                {
-                    title: "Individual Statistics",
-                    url: "#",
-                },
-                {
-                    title: "Search Employee",
-                    url: "#",
-                },
-                {
-                    title: "Data Tables",
-                    url: "#",
-                },
-            ],
-        },
+        // {
+        //     title: "In Depth",
+        //     url: "#",
+        //     items: [
+        //         {
+        //             title: "Individual Statistics",
+        //             url: "#",
+        //         },
+        //         {
+        //             title: "Search Employee",
+        //             url: "#",
+        //         },
+        //         {
+        //             title: "Data Tables",
+        //             url: "#",
+        //         },
+        //     ],
+        // },
     ],
 }
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+    const pathname = usePathname()
     return (
         <Sidebar variant="floating" {...props}>
             <SidebarHeader>
@@ -88,7 +87,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                                     <SidebarMenuSub className="ml-0 border-l-0 px-1.5">
                                         {item.items.map((item) => (
                                             <SidebarMenuSubItem key={item.title}>
-                                                <SidebarMenuSubButton asChild isActive={item.isActive}>
+                                                <SidebarMenuSubButton asChild isActive={item.url == pathname}>
                                                     <a href={item.url}>{item.title}</a>
                                                 </SidebarMenuSubButton>
                                             </SidebarMenuSubItem>

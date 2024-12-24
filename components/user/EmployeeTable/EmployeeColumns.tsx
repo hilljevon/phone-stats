@@ -55,11 +55,11 @@ export const columns: ColumnDef<EmployeeType>[] = [
         header: "Employee",
     },
     {
-        accessorKey: "email",
-        header: "Email",
+        accessorKey: "Oct-24 Not Ready %",
+        header: "Oct Not Ready",
     },
     {
-        accessorKey: "amount",
-        header: "Amount",
+        accessorKey: "Oct-24 Answered Call %",
+        header: "Oct Answered Call",
     },
 ]
