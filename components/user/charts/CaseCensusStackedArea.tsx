@@ -85,40 +85,57 @@ const metricCategories = ["answeredCallPercent", "month", "notReadyPercent", "ab
 // ]
 const chartConfig = {
     visitors: {
-        label: "Visitors",
+        label: "Cases",
     },
-    absenceSum: {
-        label: "Absences",
-        color: "hsl(var(--chart-1))",
-    },
-    tardiesSum: {
-        label: "Tardies",
-        color: "hsl(var(--chart-2))",
+    cases: {
+        label: "Cases",
+        color: "hsl(var(--chart-5))",
     },
 } satisfies ChartConfig
-
-export function StackedAreaChart() {
+interface CaseCensusInterface {
+    date: string,
+    cases: number
+}
+export function CaseCensusStackedArea() {
+    const [initialData, setInitialData] = useState<CaseCensusInterface[] | null>(null)
     const [timeRange, setTimeRange] = useState("0")
     const [filteredData, setFilteredData] = useState<any[]>(average_data)
     const handleFilteredData = () => {
-        if (timeRange == "0") {
-            setFilteredData(average_data)
-        } else if (timeRange == "1") {
-            setFilteredData(average_data.slice(4))
-        } else {
-            setFilteredData(average_data.slice(7))
+        if (initialData) {
+            if (timeRange == "0") {
+                setFilteredData(initialData)
+            } else if (timeRange == "1") {
+                setFilteredData(initialData.slice(121))
+            } else {
+                setFilteredData(initialData.slice(213))
+            }
         }
     }
     useEffect(() => {
         handleFilteredData()
     }, [timeRange])
+    useEffect(() => {
+        fetch("/data/case_census.json")
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error("Unable to fetch case census data!")
+                }
+                return response.json()
+            })
+            .then((jsonData) => {
+                setInitialData(jsonData)
+                setFilteredData(jsonData)
+            })
+            .catch((error) => console.log("Unable to fetch JSON data"))
+    }, [])
+
     return (
         <Card>
             <CardHeader className="flex items-center gap-2 space-y-0 border-b py-5 sm:flex-row">
                 <div className="grid flex-1 gap-1 text-center sm:text-left">
-                    <CardTitle>Attendance</CardTitle>
+                    <CardTitle>Case Census</CardTitle>
                     <CardDescription>
-                        <span className="text-green-600 font-semibold">Tardies </span> and <span className="text-orange-600 font-semibold"> Absences </span> through 2024
+                        <span className="text-orange-600 font-semibold"> Cases </span> through 2024
                     </CardDescription>
                 </div>
                 <Select value={timeRange} onValueChange={setTimeRange}>
@@ -148,45 +165,45 @@ export function StackedAreaChart() {
                 >
                     <AreaChart data={filteredData}>
                         <defs>
-                            <linearGradient id="fillabsenceSum" x1="0" y1="0" x2="0" y2="1">
+                            <linearGradient id="fillcases" x1="0" y1="0" x2="0" y2="1">
                                 <stop
                                     offset="5%"
-                                    stopColor="var(--color-absenceSum)"
+                                    stopColor="var(--color-cases)"
                                     stopOpacity={0.8}
                                 />
                                 <stop
                                     offset="95%"
-                                    stopColor="var(--color-absenceSum)"
+                                    stopColor="var(--color-cases)"
                                     stopOpacity={0.1}
                                 />
                             </linearGradient>
                             <linearGradient id="filltardiesSum" x1="0" y1="0" x2="0" y2="1">
                                 <stop
                                     offset="5%"
-                                    stopColor="var(--color-tardiesSum)"
+                                    stopColor="var(--color-cases)"
                                     stopOpacity={0.8}
                                 />
                                 <stop
                                     offset="95%"
-                                    stopColor="var(--color-tardiesSum)"
+                                    stopColor="var(--color-cases)"
                                     stopOpacity={0.1}
                                 />
                             </linearGradient>
                         </defs>
                         <CartesianGrid vertical={false} />
-                        {/* <YAxis
-                            domain={[0, 150]} // Set the min and max values here
+                        <YAxis
+                            domain={[0, 615]} // Set the min and max values here
                             tickCount={6} // Adjust the number of ticks
                             dataKey={"tardiesSum"}
-                        /> */}
+                        />
                         {/* LOG Y VALUES ARE USED TO MORE APPROPRIATELY SEE CHANGE IN VALUES */}
-                        <YAxis
+                        {/* <YAxis
                             scale="log"
                             domain={[20, 160]}
                             allowDataOverflow={true}
-                        />
+                        /> */}
                         <XAxis
-                            dataKey="month"
+                            dataKey="date"
                             tickMargin={8}
                             minTickGap={32}
                             tickFormatter={(value) => {
@@ -216,19 +233,19 @@ export function StackedAreaChart() {
                             }
                         />
                         <Area
-                            dataKey="absenceSum"
+                            dataKey="cases"
                             type="natural"
-                            fill="url(#fillabsenceSum)"
-                            stroke="var(--color-absenceSum)"
+                            fill="url(#fillcases)"
+                            stroke="var(--color-cases)"
                             stackId="a"
                         />
-                        <Area
+                        {/* <Area
                             dataKey="tardiesSum"
                             type="natural"
                             fill="url(#filltardiesSum)"
                             stroke="var(--color-tardiesSum)"
                             stackId="a"
-                        />
+                        /> */}
 
                         <ChartLegend content={<ChartLegendContent />} />
                     </AreaChart>

@@ -16,7 +16,6 @@ import {
     ChartTooltipContent,
 } from "@/components/ui/chart"
 import { useEffect, useMemo, useState } from "react"
-import { getAverageFromMonthValArray, organizeBarChartData } from "@/lib/helpers"
 
 const chartConfig = {
     views: {
@@ -158,7 +157,6 @@ const barChartConfig = {
     },
 } satisfies ChartConfig
 export function PhoneOverviewChart() {
-    const [activeAnimationChart, setActiveAnimationChart] = useState("answeredCallPercent"); // Track active tab
     const [barActiveChart, setBarActiveChart] =
         useState<keyof typeof barChartConfig>("cases")
     const [barChartData2, setBarChartData2] = useState<any[]>([])
