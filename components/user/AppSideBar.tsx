@@ -1,6 +1,5 @@
 import * as React from "react"
 import { GalleryVerticalEnd, PhoneCall, PhoneIncoming } from "lucide-react"
-
 import {
     Sidebar,
     SidebarContent,
@@ -13,7 +12,6 @@ import {
     SidebarMenuSubButton,
     SidebarMenuSubItem,
 } from "@/components/ui/sidebar"
-
 // This is sample data.
 const data = {
     navMain: [

@@ -1,6 +1,6 @@
 "use client"
 
-import { TrendingUp } from "lucide-react"
+import { TrendingDown, TrendingUp } from "lucide-react"
 import { Bar, BarChart, CartesianGrid, Rectangle, ReferenceLine, XAxis } from "recharts"
 
 import {
@@ -21,6 +21,7 @@ import {
 } from "@/components/ui/chart"
 import { Slider } from "@/components/ui/slider"
 import { useEffect, useState } from "react"
+import { handleBarClickAnalytics } from "@/lib/helpers"
 
 export const notReadyCategorized = [
     {
@@ -100,32 +101,69 @@ const chartConfig = {
 
 } satisfies ChartConfig
 
+// Stacked Bar Interface
 interface StackedBarChartInterface {
     month: string,
     below: number,
     middle: number,
     above: number
 }
-interface AnsweredCallsInterface {
-    month: string,
-    val: number
+interface NotReadyAnalyticsInterface {
+    differenceInAbovePercent: number,
+    differenceInBelowPercent: number,
+    differenceInMidPercent: number
 }
-
+// These averages are # of individuals that fall in this tier this year.
+const belowPercentAverageNR = 7.6
+const midPercentAverageNR = 19.3
+const abovePercentAverageNR = 53.1
 export function NotReadyStackedBarChart() {
-    const [sliderValue, setSliderValue] = useState(60); // I
+    const [sliderValue, setSliderValue] = useState(60);
+    const [activeBarIndex, setActiveBarIndex] = useState<number | undefined>(undefined)
+    const [notReadyAnalytics, setNotReadyAnalytics] = useState<NotReadyAnalyticsInterface | null>(null)
+    const [currentData, setCurrentData] = useState<StackedBarChartInterface | undefined>(undefined)
     const handleSliderChange = (value: number[]) => {
         setSliderValue(value[0]); // Update slider value
     };
     const handleBarClick = (data: StackedBarChartInterface, idx: number) => {
         setActiveBarIndex(idx)
+        setCurrentData(notReadyCategorized[idx])
+        const analytics = handleBarClickAnalytics(data, idx, "notReady")
+        setNotReadyAnalytics(analytics)
     }
-    const [activeBarIndex, setActiveBarIndex] = useState(4)
+
     return (
         <Card>
-            <CardHeader>
-                <CardTitle>Not Ready Times</CardTitle>
-                <CardDescription> Trending up by 5.2% this month <TrendingUp className="inline h-4 w-4" /></CardDescription>
-            </CardHeader>
+            {currentData == undefined ? (
+                <CardHeader>
+                    <CardTitle>
+                        Not Ready Times
+                    </CardTitle>
+                    <CardDescription>
+                        Double click a month to view analytics
+                    </CardDescription>
+                </CardHeader>
+            ) : (
+                <CardHeader>
+                    {notReadyAnalytics && (
+                        <>
+                            <CardTitle>
+                                Not Ready Times - {currentData.month}
+                            </CardTitle>
+                            {(currentData.above - abovePercentAverageNR) > 0 ? (
+                                <CardDescription>
+                                    <span className="text-green-500 text-sm"> Trending up {Math.floor(currentData.above - abovePercentAverageNR)}% this month <TrendingUp className="inline h-4 w-4" /> </span><span className="text-xs from-neutral-200"> *based on total # above average.</span>
+                                </CardDescription>
+                            ) : (
+                                <CardDescription className="text-red-500">
+                                    Trending down {Math.floor(currentData.above - abovePercentAverageNR)}% this month <TrendingDown className="inline h-4 w-4" /><span className="text-xs from-neutral-200"> *based on total # above average.</span>
+                                </CardDescription>
+                            )}
+
+                        </>
+                    )}
+                </CardHeader>
+            )}
             <CardContent>
                 <ChartContainer config={chartConfig}>
                     <BarChart accessibilityLayer data={notReadyCategorized}>
@@ -211,12 +249,26 @@ export function NotReadyStackedBarChart() {
                 </ChartContainer>
             </CardContent>
             <CardFooter className="flex-col items-start gap-2 text-sm">
-                {/* <div className="flex gap-2 font-medium leading-none">
-                    Target: <span className="text-red-500 font-bold">{sliderValue}</span>
-                </div>
-                <div className="leading-none text-muted-foreground">
-                    Adjust slider below for target % goal.
-                </div> */}
+                {notReadyAnalytics != null ? (
+                    <>
+                        {/* <div className="flex gap-2 font-medium leading-none">
+                            Data
+                        </div> */}
+                        <div className="leading-none text-muted-foreground">
+                            Compared to the previous month, there is a <span className="text-green-600">
+                                {Math.floor(notReadyAnalytics.differenceInAbovePercent)}% change for not ready % above average</span>,<span className="text-orange-500"> {Math.floor(notReadyAnalytics.differenceInMidPercent)}% change for average count</span>, and <span className="text-red-600">{Math.floor(notReadyAnalytics.differenceInBelowPercent)}% change in those below average</span>.
+                        </div>
+                    </>
+                ) : (
+                    <>
+                        <div className="flex gap-2 leading-none font-bold">
+                            Benchmarks:
+                        </div>
+                        <div className="leading-none text-muted-foreground font-semibold">
+                            Above Average: <span className="text-green-700 underline">25% and below</span>. Average: <span className="text-yellow-600 underline">26% - 39%</span> . Below Average: <span className="text-red-600 underline">40% and above</span>.
+                        </div>
+                    </>
+                )}
             </CardFooter>
             {/* <Slider
                 value={[sliderValue]}

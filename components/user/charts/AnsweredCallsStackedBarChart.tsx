@@ -113,10 +113,7 @@ interface StackedBarChartInterface {
     middle: number,
     above: number
 }
-interface AnsweredCallsInterface {
-    month: string,
-    val: number
-}
+
 const abovePercentAverage = 53.1
 const belowPercentAverage = 7.6
 const midPercentAverage = 17.4

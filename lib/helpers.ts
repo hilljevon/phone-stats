@@ -4,6 +4,10 @@ interface StackedBarChartInterface {
     middle: number,
     above: number
 }
+interface MonthValInterface {
+    month: string,
+    val: number
+}
 export const answeredCallsCategorized = [
     {
         "month": "Jan-24",
@@ -130,7 +134,7 @@ export const notReadyCategorized = [
 ]
 // This function was initialized to produce our month by month breakdown according phone stat goals. Import the respective JSON file and run to print out Rechart-friendly objects
 export const organizeBarChartData = async () => {
-    const res = await fetch("/data/answered_calls.json")
+    const res = await fetch("/data/absences_data.json")
     const jsonData: any[] = await res.json();
     const chartData = [
         { month: "Jan-24", below: 0, middle: 0, above: 0 },
@@ -144,53 +148,6 @@ export const organizeBarChartData = async () => {
         { month: "Sep-24", below: 0, middle: 0, above: 0 },
         { month: "Oct-24", below: 0, middle: 0, above: 0 },
     ]
-    let filteringObject = {
-        "Jan-24": [0, 0, 0],
-        "Feb-24": [0, 0, 0],
-        "Mar-24": [0, 0, 0],
-        "Apr-24": [0, 0, 0],
-        "May-24": [0, 0, 0],
-        "Jun-24": [0, 0, 0],
-        "Jul-24": [0, 0, 0],
-        "Aug-24": [0, 0, 0],
-        "Sep-24": [0, 0, 0],
-        "Oct-24": [0, 0, 0],
-    }
-    const categorizeIndex = (month: string) => {
-        switch (month) {
-            case "Jan-24":
-                return 0;
-            case "Feb-24":
-                return 1;
-            case "Mar-24":
-                return 2
-            case "Apr-24":
-                return 3;
-            case "May-24":
-                return 4;
-            case "Jun-24":
-                return 5;
-            case "Jul-24":
-                return 6;
-            case "Aug-24":
-                return 7;
-            case "Sep-24":
-                return 8
-            case "Oct-24":
-                return 9
-            default:
-                return 0
-        }
-    }
-    const categorizeDataValue = (val: number) => {
-        if (val < 80) {
-            return "middle"
-        } else if (val < 70) {
-            return "below"
-        } else {
-            return "above"
-        }
-    }
     console.log("JSON DATA HERE", jsonData)
     jsonData.forEach((data) => {
         const resEntry = chartData.find((entry) => entry.month == data.month)
@@ -229,4 +186,17 @@ export const handleBarClickAnalytics = (data: StackedBarChartInterface, idx: num
         const differenceInMidPercent = ((data.middle / 80) * 100) - ((prevData.middle / 80) * 100)
         return { differenceInAbovePercent, differenceInBelowPercent, differenceInMidPercent }
     }
+}
+export const getAverageFromMonthValArray = async (month: string) => {
+    const res = await fetch("/data/tardies_data.json")
+    const jsonData: MonthValInterface[] = await res.json();
+    let sum = 0
+    jsonData.forEach((entry, idx) => {
+        if (entry.month == month) {
+            sum = sum + entry.val
+        }
+    })
+    const avg = sum
+    console.log("MONTH", month)
+    console.log("SUM HERE", sum)
 }
