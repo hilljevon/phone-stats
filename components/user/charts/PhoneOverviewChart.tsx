@@ -15,7 +15,7 @@ import {
     ChartTooltip,
     ChartTooltipContent,
 } from "@/components/ui/chart"
-import { useMemo, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 import { getAverageFromMonthValArray, organizeBarChartData } from "@/lib/helpers"
 
 const chartConfig = {
@@ -32,7 +32,7 @@ const chartConfig = {
     },
     absenceSum: {
         label: "Total absences",
-        color: "hsl(var(--chart-3))",
+        color: "#dd9faf",
     },
     tardiesSum: {
         label: "Total tardies",
@@ -150,21 +150,18 @@ const barChartData = [
 ]
 const barChartConfig = {
     views: {
-        label: "Page Views",
+        label: "Cases",
     },
-    desktop: {
-        label: "Desktop",
-        color: "hsl(var(--chart-1))",
-    },
-    mobile: {
-        label: "Mobile",
-        color: "hsl(var(--chart-2))",
+    cases: {
+        label: "Cases",
+        color: "#693690",
     },
 } satisfies ChartConfig
 export function PhoneOverviewChart() {
     const [activeAnimationChart, setActiveAnimationChart] = useState("answeredCallPercent"); // Track active tab
     const [barActiveChart, setBarActiveChart] =
-        useState<keyof typeof barChartConfig>("desktop")
+        useState<keyof typeof barChartConfig>("cases")
+    const [barChartData2, setBarChartData2] = useState<any[]>([])
     const [chartKey, setChartKey] = useState(0); // Key for chart remounting
     const [barChartActive, setBarChartActive] = useState(false)
     // Update active chart and trigger chart remount
@@ -203,13 +200,24 @@ export function PhoneOverviewChart() {
             return "natural"
         }
     }
+    useEffect(() => {
+        fetch("/data/case_census.json")
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error("Unable to fetch case census data!")
+                }
+                return response.json()
+            })
+            .then((jsonData) => setBarChartData2(jsonData))
+            .catch((error) => console.log("Unable to fetch JSON data"))
+    }, [])
     return (
         <Card>
             <CardHeader className="flex flex-col items-stretch space-y-0 border-b p-0 sm:flex-row">
                 {barChartActive ? (
                     <div className="flex flex-1 flex-col justify-center gap-1 px-6 py-5 sm:py-6">
                         <CardTitle>
-                            Case Census Average Through 2024
+                            Case Census Through 2024
                         </CardTitle>
                         <CardDescription>
                             Categorized by month, from Jan-2024 to Oct-2024
@@ -329,10 +337,11 @@ export function PhoneOverviewChart() {
                     <ChartContainer
                         config={barChartConfig}
                         className="aspect-auto h-[250px] w-full"
+                        key={chartKey}
                     >
                         <BarChart
                             accessibilityLayer
-                            data={barChartData}
+                            data={barChartData2}
                             margin={{
                                 left: 12,
                                 right: 12,
@@ -352,6 +361,10 @@ export function PhoneOverviewChart() {
                                         day: "numeric",
                                     })
                                 }}
+                            />
+                            <YAxis
+                                domain={[290, 620]} // Set the range for the Y-axis
+                                tickMargin={8}
                             />
                             <ChartTooltip
                                 content={
@@ -375,7 +388,7 @@ export function PhoneOverviewChart() {
                     <ChartContainer
                         config={chartConfig}
                         className="aspect-auto h-[250px] w-full"
-                        key={chartKey} // Force remount on chart switch
+                        key={chartKey}
                     >
                         <AreaChart
                             accessibilityLayer
