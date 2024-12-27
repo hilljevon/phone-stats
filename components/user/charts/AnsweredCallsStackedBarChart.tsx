@@ -144,7 +144,7 @@ export function AnsweredCallsStackedBarChart() {
                         Answered Calls
                     </CardTitle>
                     <CardDescription>
-                        Double click a month to view analytics
+                        Filtering all employees according to answered call % metric standards. See below for performance threshold. Double click a month to view analytics
                     </CardDescription>
                 </CardHeader>
             ) : (
@@ -261,6 +261,13 @@ export function AnsweredCallsStackedBarChart() {
                         <div className="leading-none text-muted-foreground">
                             Compared to the previous month, there is a <span className="text-green-600">
                                 {Math.floor(answeredCallAnalytics.differenceInAbovePercent)}% change for answered calls above average</span>,<span> {Math.floor(answeredCallAnalytics.differenceInMidPercent)}% change for average count</span>, and <span>{Math.floor(answeredCallAnalytics.differenceInBelowPercent)}% change in those below average</span>.
+                        </div>
+                        <hr />
+                        <div className="flex gap-2 leading-none font-bold border-t w-full pt-3">
+                            Benchmarks:
+                        </div>
+                        <div className="leading-none text-muted-foreground font-semibold">
+                            Above Average: <span className="text-green-700 underline">80% and above</span>. Average: <span className="text-yellow-600 underline">70% - 79%</span> . Below Average: <span className="text-red-600 underline">69% and below</span>.
                         </div>
                     </>
                 ) : (

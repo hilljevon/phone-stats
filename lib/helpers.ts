@@ -217,3 +217,17 @@ export const handleEmployeeData = (data: EmployeeType) => {
     }
     return phoneData
 }
+export const handleEmployeeAttendance = (data: EmployeeType) => {
+    const months = ["Jan-24", "Feb-24", "Mar-24", "Apr-24", "May-24", "Jun-24", "Jul-24", "Aug-24", "Sep-24", "Oct-24"]
+    const callMetrics = ["Tardies", "Absences"]
+    const attendanceData = []
+    for (let month of months) {
+        const curr: any = { month: month, "Tardies": 0, "Absences": 0 }
+        for (let metric of callMetrics) {
+            const currentKey = `${month} ${metric}`
+            curr[metric] = data[currentKey as keyof EmployeeType]
+        }
+        attendanceData.push(curr)
+    }
+    return attendanceData
+}

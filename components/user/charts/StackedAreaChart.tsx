@@ -63,16 +63,16 @@ const chartData = [
     { date: "2024-06-30", desktop: 446, mobile: 400 },
 ]
 const average_data = [
-    { month: "Jan-24", answeredCallPercent: 74.67, notReadyPercent: 27.16, absenceSum: 23, tardiesSum: 71 },
-    { month: "Feb-24", answeredCallPercent: 73.72, notReadyPercent: 22.61, absenceSum: 31, tardiesSum: 87 },
-    { month: "Mar-24", answeredCallPercent: 76.01, notReadyPercent: 22.41, absenceSum: 36, tardiesSum: 52 },
-    { month: "Apr-24", answeredCallPercent: 75.77, notReadyPercent: 25.61, absenceSum: 43, tardiesSum: 83 },
-    { month: "May-24", answeredCallPercent: 77.11, notReadyPercent: 22.89, absenceSum: 35, tardiesSum: 63 },
-    { month: "Jun-24", answeredCallPercent: 76.5, notReadyPercent: 22.31, absenceSum: 39, tardiesSum: 66 },
-    { month: "Jul-24", answeredCallPercent: 87.75, notReadyPercent: 25.25, absenceSum: 38, tardiesSum: 104 },
-    { month: "Aug-24", answeredCallPercent: 86.56, notReadyPercent: 27.16, absenceSum: 24, tardiesSum: 40 },
-    { month: "Sep-24", answeredCallPercent: 83.61, notReadyPercent: 27.64, absenceSum: 37, tardiesSum: 46 },
-    { month: "Oct-24", answeredCallPercent: 87.22, notReadyPercent: 27, absenceSum: 36, tardiesSum: 90 },
+    { month: "Jan-24", answeredCallPercent: 74.67, notReadyPercent: 27.16, absenceSum: .33, tardiesSum: .88 },
+    { month: "Feb-24", answeredCallPercent: 73.72, notReadyPercent: 22.61, absenceSum: .38, tardiesSum: .97 },
+    { month: "Mar-24", answeredCallPercent: 76.01, notReadyPercent: 22.41, absenceSum: .45, tardiesSum: .65 },
+    { month: "Apr-24", answeredCallPercent: 75.77, notReadyPercent: 25.61, absenceSum: .53, tardiesSum: 1.04 },
+    { month: "May-24", answeredCallPercent: 77.11, notReadyPercent: 22.89, absenceSum: .43, tardiesSum: .78 },
+    { month: "Jun-24", answeredCallPercent: 76.5, notReadyPercent: 22.31, absenceSum: .48, tardiesSum: .82 },
+    { month: "Jul-24", answeredCallPercent: 87.75, notReadyPercent: 25.25, absenceSum: .47, tardiesSum: 1.3 },
+    { month: "Aug-24", answeredCallPercent: 86.56, notReadyPercent: 27.16, absenceSum: .3, tardiesSum: 0.5 },
+    { month: "Sep-24", answeredCallPercent: 83.61, notReadyPercent: 27.64, absenceSum: .46, tardiesSum: .57 },
+    { month: "Oct-24", answeredCallPercent: 87.22, notReadyPercent: 27, absenceSum: .45, tardiesSum: 1.12 },
 ]
 const metricCategories = ["answeredCallPercent", "month", "notReadyPercent", "absenceSum", "tardiesSum"]
 // const dataCards = [
@@ -118,7 +118,7 @@ export function StackedAreaChart() {
                 <div className="grid flex-1 gap-1 text-center sm:text-left">
                     <CardTitle>Attendance</CardTitle>
                     <CardDescription>
-                        <span className="text-green-600 font-semibold">Tardies </span> and <span className="text-orange-600 font-semibold"> Absences </span> through 2024
+                        <span className="text-green-600 font-semibold">Tardies </span> and <span className="text-orange-600 font-semibold"> Absences </span> per month per employee
                     </CardDescription>
                 </div>
                 <Select value={timeRange} onValueChange={setTimeRange}>
@@ -181,8 +181,7 @@ export function StackedAreaChart() {
                         /> */}
                         {/* LOG Y VALUES ARE USED TO MORE APPROPRIATELY SEE CHANGE IN VALUES */}
                         <YAxis
-                            scale="log"
-                            domain={[20, 160]}
+                            domain={[0, 2]}
                             allowDataOverflow={true}
                         />
                         <XAxis

@@ -10,6 +10,7 @@ import { EmployeeDataTable } from './EmployeeTable/EmployeeDataTable'
 import { employeeColumns, EmployeeType } from './EmployeeTable/EmployeeColumns'
 import { EmployeeSelectCombobox } from './EmployeeSelectCombobox'
 import { EmployeeMultiBarChart } from './employeeCharts/EmployeeMultiBarChart'
+import { EmployeeMultiBarAttendance } from './employeeCharts/EmployeeMultiBarAttendance'
 const EmployeeDashboard = () => {
     const [allCases, setAllCases] = useState<EmployeeType[]>([])
     const [employeeValue, setEmployeeValue] = useState("")
@@ -50,9 +51,14 @@ const EmployeeDashboard = () => {
                     </Accordion>
                 </div>
                 {currentData && (
-                    <div className="col-span-2">
-                        <EmployeeMultiBarChart currentData={currentData} />
-                    </div>
+                    <>
+                        <div className="col-span-2">
+                            <EmployeeMultiBarChart currentData={currentData} />
+                        </div>
+                        <div className="col-span-2">
+                            <EmployeeMultiBarAttendance currentData={currentData} />
+                        </div>
+                    </>
                 )}
             </div>
         </>

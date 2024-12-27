@@ -140,7 +140,7 @@ export function NotReadyStackedBarChart() {
                         Not Ready Times
                     </CardTitle>
                     <CardDescription>
-                        Double click a month to view analytics
+                        Filtering all employees according to not ready metric standards. See below for performance threshold. Double click a month to view analytics
                     </CardDescription>
                 </CardHeader>
             ) : (
@@ -258,12 +258,20 @@ export function NotReadyStackedBarChart() {
                             Compared to the previous month, there is a <span className="text-green-600">
                                 {Math.floor(notReadyAnalytics.differenceInAbovePercent)}% change for not ready % above average</span>,<span className="text-orange-500"> {Math.floor(notReadyAnalytics.differenceInMidPercent)}% change for average count</span>, and <span className="text-red-600">{Math.floor(notReadyAnalytics.differenceInBelowPercent)}% change in those below average</span>.
                         </div>
+                        <div className="flex gap-2 leading-none font-bold border-t w-full pt-3">
+                            Benchmarks:
+                        </div>
+                        <hr />
+                        <div className="leading-none text-muted-foreground font-semibold">
+                            Above Average: <span className="text-green-700 underline">25% and below</span>. Average: <span className="text-yellow-600 underline">26% - 39%</span> . Below Average: <span className="text-red-600 underline">40% and above</span>.
+                        </div>
                     </>
                 ) : (
                     <>
                         <div className="flex gap-2 leading-none font-bold">
                             Benchmarks:
                         </div>
+                        <hr />
                         <div className="leading-none text-muted-foreground font-semibold">
                             Above Average: <span className="text-green-700 underline">25% and below</span>. Average: <span className="text-yellow-600 underline">26% - 39%</span> . Below Average: <span className="text-red-600 underline">40% and above</span>.
                         </div>

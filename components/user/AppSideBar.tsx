@@ -30,8 +30,21 @@ const data = {
                     title: "Employees",
                     url: "/employees",
                 },
+                {
+                    title: "Phones",
+                    url: "/phones",
+                },
+                {
+                    title: "Attendance",
+                    url: "/attendance",
+                },
+                {
+                    title: "Cases",
+                    url: "/cases",
+                },
             ],
         },
+
         // {
         //     title: "In Depth",
         //     url: "#",

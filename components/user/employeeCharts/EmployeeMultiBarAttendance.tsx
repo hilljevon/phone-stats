@@ -18,7 +18,7 @@ import {
     ChartTooltipContent,
 } from "@/components/ui/chart"
 import { EmployeeType } from "../EmployeeTable/EmployeeColumns"
-import { handleEmployeeData } from "@/lib/helpers"
+import { handleEmployeeAttendance, handleEmployeeData } from "@/lib/helpers"
 const chartData = [
     { month: "January", desktop: 186, mobile: 80 },
     { month: "February", desktop: 305, mobile: 200 },
@@ -29,24 +29,24 @@ const chartData = [
 ]
 
 const chartConfig = {
-    "Answered Call %": {
-        label: "Answer",
-        color: "#0b3068",
+    "Tardies": {
+        label: "Tardies",
+        color: "#ffc300",
     },
-    "Not Ready %": {
-        label: "NR",
-        color: "	#500303",
+    "Absences": {
+        label: "Absences",
+        color: "#dc3545",
     },
 } satisfies ChartConfig
 
-export function EmployeeMultiBarChart({ currentData }: { currentData: EmployeeType }) {
-    const data = handleEmployeeData(currentData)
+export function EmployeeMultiBarAttendance({ currentData }: { currentData: EmployeeType }) {
+    const data = handleEmployeeAttendance(currentData)
     return (
         <Card>
             <CardHeader>
-                <CardTitle>Phone Stats</CardTitle>
+                <CardTitle>Attendance Stats</CardTitle>
                 <CardDescription>
-                    <span className="text-[#0b3068] font-semibold">Answered Call % </span> and <span className="text-[#500303] font-semibold">Not Ready %</span>
+                    <span className="text-[#ffc300] font-semibold">Tardies </span> and <span className="text-[#dc3545] font-bold">Absences</span>
                 </CardDescription>
             </CardHeader>
             {data && (
@@ -65,14 +65,14 @@ export function EmployeeMultiBarChart({ currentData }: { currentData: EmployeeTy
                                 <YAxis
                                     tickLine={true}
                                     tickCount={6} // Adjust the number of ticks
-                                    domain={[0, 100]}
+                                    domain={[0, 8]}
                                 />
                                 <ChartTooltip
                                     cursor={false}
                                     content={<ChartTooltipContent indicator="dashed" />}
                                 />
-                                <Bar dataKey="Answered Call %" fill="#0b3068" radius={4} />
-                                <Bar dataKey="Not Ready %" fill="	#500303" radius={4} />
+                                <Bar dataKey="Tardies" fill="	#ffc300" radius={4} />
+                                <Bar dataKey="Absences" fill="#dc3545" radius={4} />
                             </BarChart>
                         </ChartContainer>
                     </CardContent>
