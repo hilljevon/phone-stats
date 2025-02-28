@@ -42,6 +42,10 @@ const data = {
                     title: "Cases",
                     url: "/cases",
                 },
+                {
+                    title: "Scheduling",
+                    url: "/schedules",
+                },
             ],
         },
 
