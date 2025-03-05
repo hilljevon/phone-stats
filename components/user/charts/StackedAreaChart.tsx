@@ -73,6 +73,8 @@ const average_data = [
     { month: "Aug-24", answeredCallPercent: 86.56, notReadyPercent: 27.16, absenceSum: .3, tardiesSum: 0.5 },
     { month: "Sep-24", answeredCallPercent: 83.61, notReadyPercent: 27.64, absenceSum: .46, tardiesSum: .57 },
     { month: "Oct-24", answeredCallPercent: 87.22, notReadyPercent: 27, absenceSum: .45, tardiesSum: 1.12 },
+    { month: "Nov-24", answeredCallPercent: 87.22, notReadyPercent: 27, absenceSum: .36, tardiesSum: .91 },
+    { month: "Dec-24", answeredCallPercent: 87.22, notReadyPercent: 27, absenceSum: .52, tardiesSum: .97 },
 ]
 const metricCategories = ["answeredCallPercent", "month", "notReadyPercent", "absenceSum", "tardiesSum"]
 // const dataCards = [
@@ -104,9 +106,9 @@ export function StackedAreaChart() {
         if (timeRange == "0") {
             setFilteredData(average_data)
         } else if (timeRange == "1") {
-            setFilteredData(average_data.slice(4))
+            setFilteredData(average_data.slice(6))
         } else {
-            setFilteredData(average_data.slice(7))
+            setFilteredData(average_data.slice(9))
         }
     }
     useEffect(() => {

@@ -40,6 +40,14 @@
         "val": 13.84
     },
     {
+        "month": "Nov-24",
+        "val": 18.69
+    },
+    {
+        "month": "Dec-24",
+        "val": 26.7
+    },
+    {
         "month": "Jan-24",
         "val": 18.35
     },
@@ -78,6 +86,14 @@
     {
         "month": "Oct-24",
         "val": 22.08
+    },
+    {
+        "month": "Nov-24",
+        "val": 20.32
+    },
+    {
+        "month": "Dec-24",
+        "val": 21.96
     },
     {
         "month": "Jan-24",
@@ -120,6 +136,14 @@
         "val": 34.44
     },
     {
+        "month": "Nov-24",
+        "val": 28.46
+    },
+    {
+        "month": "Dec-24",
+        "val": 34.58
+    },
+    {
         "month": "Jan-24",
         "val": 16.45
     },
@@ -158,6 +182,14 @@
     {
         "month": "Oct-24",
         "val": 26.23
+    },
+    {
+        "month": "Nov-24",
+        "val": 25.9
+    },
+    {
+        "month": "Dec-24",
+        "val": 21.4
     },
     {
         "month": "Jan-24",
@@ -200,6 +232,14 @@
         "val": 34.01
     },
     {
+        "month": "Nov-24",
+        "val": 29.88
+    },
+    {
+        "month": "Dec-24",
+        "val": 36.05
+    },
+    {
         "month": "Jan-24",
         "val": null
     },
@@ -238,6 +278,62 @@
     {
         "month": "Oct-24",
         "val": 11.84
+    },
+    {
+        "month": "Nov-24",
+        "val": 12.53
+    },
+    {
+        "month": "Dec-24",
+        "val": 16.26
+    },
+    {
+        "month": "Jan-24",
+        "val": null
+    },
+    {
+        "month": "Feb-24",
+        "val": null
+    },
+    {
+        "month": "Mar-24",
+        "val": 28.07
+    },
+    {
+        "month": "Apr-24",
+        "val": 27.78
+    },
+    {
+        "month": "May-24",
+        "val": null
+    },
+    {
+        "month": "Jun-24",
+        "val": null
+    },
+    {
+        "month": "Jul-24",
+        "val": null
+    },
+    {
+        "month": "Aug-24",
+        "val": null
+    },
+    {
+        "month": "Sep-24",
+        "val": null
+    },
+    {
+        "month": "Oct-24",
+        "val": null
+    },
+    {
+        "month": "Nov-24",
+        "val": null
+    },
+    {
+        "month": "Dec-24",
+        "val": null
     },
     {
         "month": "Jan-24",
@@ -280,6 +376,14 @@
         "val": 21.67
     },
     {
+        "month": "Nov-24",
+        "val": 21.26
+    },
+    {
+        "month": "Dec-24",
+        "val": 21.89
+    },
+    {
         "month": "Jan-24",
         "val": 30.79
     },
@@ -318,6 +422,14 @@
     {
         "month": "Oct-24",
         "val": 20.12
+    },
+    {
+        "month": "Nov-24",
+        "val": 16.81
+    },
+    {
+        "month": "Dec-24",
+        "val": 22.26
     },
     {
         "month": "Jan-24",
@@ -360,6 +472,14 @@
         "val": 28.91
     },
     {
+        "month": "Nov-24",
+        "val": 28.57
+    },
+    {
+        "month": "Dec-24",
+        "val": 24.73
+    },
+    {
         "month": "Jan-24",
         "val": 63.17
     },
@@ -398,6 +518,14 @@
     {
         "month": "Oct-24",
         "val": 59.57
+    },
+    {
+        "month": "Nov-24",
+        "val": null
+    },
+    {
+        "month": "Dec-24",
+        "val": null
     },
     {
         "month": "Jan-24",
@@ -440,6 +568,14 @@
         "val": 28.67
     },
     {
+        "month": "Nov-24",
+        "val": 27.93
+    },
+    {
+        "month": "Dec-24",
+        "val": 40.25
+    },
+    {
         "month": "Jan-24",
         "val": 0.23
     },
@@ -478,6 +614,14 @@
     {
         "month": "Oct-24",
         "val": 0.8
+    },
+    {
+        "month": "Nov-24",
+        "val": 0.77
+    },
+    {
+        "month": "Dec-24",
+        "val": 20.64
     },
     {
         "month": "Jan-24",
@@ -520,6 +664,14 @@
         "val": 26.12
     },
     {
+        "month": "Nov-24",
+        "val": 23.1
+    },
+    {
+        "month": "Dec-24",
+        "val": 24.75
+    },
+    {
         "month": "Jan-24",
         "val": 16.58
     },
@@ -558,6 +710,14 @@
     {
         "month": "Oct-24",
         "val": 16.57
+    },
+    {
+        "month": "Nov-24",
+        "val": 14.01
+    },
+    {
+        "month": "Dec-24",
+        "val": 17.7
     },
     {
         "month": "Jan-24",
@@ -600,6 +760,14 @@
         "val": 49.9
     },
     {
+        "month": "Nov-24",
+        "val": 52.85
+    },
+    {
+        "month": "Dec-24",
+        "val": 57.22
+    },
+    {
         "month": "Jan-24",
         "val": 0.84
     },
@@ -638,6 +806,14 @@
     {
         "month": "Oct-24",
         "val": 11.98
+    },
+    {
+        "month": "Nov-24",
+        "val": 11.48
+    },
+    {
+        "month": "Dec-24",
+        "val": 3.74
     },
     {
         "month": "Jan-24",
@@ -680,6 +856,14 @@
         "val": 18.07
     },
     {
+        "month": "Nov-24",
+        "val": 18.56
+    },
+    {
+        "month": "Dec-24",
+        "val": 26.45
+    },
+    {
         "month": "Jan-24",
         "val": 17.3
     },
@@ -718,6 +902,14 @@
     {
         "month": "Oct-24",
         "val": 18.16
+    },
+    {
+        "month": "Nov-24",
+        "val": 15.29
+    },
+    {
+        "month": "Dec-24",
+        "val": 24.97
     },
     {
         "month": "Jan-24",
@@ -760,6 +952,14 @@
         "val": 17.05
     },
     {
+        "month": "Nov-24",
+        "val": 17.28
+    },
+    {
+        "month": "Dec-24",
+        "val": 20.79
+    },
+    {
         "month": "Jan-24",
         "val": 0.01
     },
@@ -798,6 +998,14 @@
     {
         "month": "Oct-24",
         "val": 0.13
+    },
+    {
+        "month": "Nov-24",
+        "val": 0.02
+    },
+    {
+        "month": "Dec-24",
+        "val": 0.01
     },
     {
         "month": "Jan-24",
@@ -840,6 +1048,14 @@
         "val": 19.62
     },
     {
+        "month": "Nov-24",
+        "val": 20.12
+    },
+    {
+        "month": "Dec-24",
+        "val": 29.09
+    },
+    {
         "month": "Jan-24",
         "val": 20.73
     },
@@ -878,6 +1094,14 @@
     {
         "month": "Oct-24",
         "val": 28.75
+    },
+    {
+        "month": "Nov-24",
+        "val": 35.9
+    },
+    {
+        "month": "Dec-24",
+        "val": 38.43
     },
     {
         "month": "Jan-24",
@@ -920,6 +1144,14 @@
         "val": 28.75
     },
     {
+        "month": "Nov-24",
+        "val": 47.03
+    },
+    {
+        "month": "Dec-24",
+        "val": 46.64
+    },
+    {
         "month": "Jan-24",
         "val": 20.58
     },
@@ -958,6 +1190,14 @@
     {
         "month": "Oct-24",
         "val": 20.9
+    },
+    {
+        "month": "Nov-24",
+        "val": 18.12
+    },
+    {
+        "month": "Dec-24",
+        "val": 27.13
     },
     {
         "month": "Jan-24",
@@ -1000,6 +1240,14 @@
         "val": 22.62
     },
     {
+        "month": "Nov-24",
+        "val": 23.02
+    },
+    {
+        "month": "Dec-24",
+        "val": 31.06
+    },
+    {
         "month": "Jan-24",
         "val": 90.65
     },
@@ -1038,6 +1286,14 @@
     {
         "month": "Oct-24",
         "val": 18.17
+    },
+    {
+        "month": "Nov-24",
+        "val": 23.4
+    },
+    {
+        "month": "Dec-24",
+        "val": 35.35
     },
     {
         "month": "Jan-24",
@@ -1080,6 +1336,14 @@
         "val": 14.88
     },
     {
+        "month": "Nov-24",
+        "val": 14.13
+    },
+    {
+        "month": "Dec-24",
+        "val": 15.19
+    },
+    {
         "month": "Jan-24",
         "val": 20.63
     },
@@ -1118,6 +1382,14 @@
     {
         "month": "Oct-24",
         "val": 17.78
+    },
+    {
+        "month": "Nov-24",
+        "val": 19.2
+    },
+    {
+        "month": "Dec-24",
+        "val": 15.8
     },
     {
         "month": "Jan-24",
@@ -1160,6 +1432,14 @@
         "val": 27.66
     },
     {
+        "month": "Nov-24",
+        "val": 24.2
+    },
+    {
+        "month": "Dec-24",
+        "val": 38.64
+    },
+    {
         "month": "Jan-24",
         "val": 13.13
     },
@@ -1198,6 +1478,14 @@
     {
         "month": "Oct-24",
         "val": 9.94
+    },
+    {
+        "month": "Nov-24",
+        "val": 12.15
+    },
+    {
+        "month": "Dec-24",
+        "val": 9.99
     },
     {
         "month": "Jan-24",
@@ -1240,6 +1528,14 @@
         "val": 34.22
     },
     {
+        "month": "Nov-24",
+        "val": 42.05
+    },
+    {
+        "month": "Dec-24",
+        "val": 35.89
+    },
+    {
         "month": "Jan-24",
         "val": 38.85
     },
@@ -1278,6 +1574,14 @@
     {
         "month": "Oct-24",
         "val": 76.7
+    },
+    {
+        "month": "Nov-24",
+        "val": 69.18
+    },
+    {
+        "month": "Dec-24",
+        "val": 71.29
     },
     {
         "month": "Jan-24",
@@ -1320,6 +1624,14 @@
         "val": 32.84
     },
     {
+        "month": "Nov-24",
+        "val": 39.95
+    },
+    {
+        "month": "Dec-24",
+        "val": 36.14
+    },
+    {
         "month": "Jan-24",
         "val": null
     },
@@ -1358,6 +1670,14 @@
     {
         "month": "Oct-24",
         "val": 39.42
+    },
+    {
+        "month": "Nov-24",
+        "val": null
+    },
+    {
+        "month": "Dec-24",
+        "val": null
     },
     {
         "month": "Jan-24",
@@ -1400,6 +1720,14 @@
         "val": 39.95
     },
     {
+        "month": "Nov-24",
+        "val": 50.78
+    },
+    {
+        "month": "Dec-24",
+        "val": 58.13
+    },
+    {
         "month": "Jan-24",
         "val": 33.5
     },
@@ -1438,6 +1766,14 @@
     {
         "month": "Oct-24",
         "val": 23.65
+    },
+    {
+        "month": "Nov-24",
+        "val": 33.89
+    },
+    {
+        "month": "Dec-24",
+        "val": 24.75
     },
     {
         "month": "Jan-24",
@@ -1480,6 +1816,14 @@
         "val": 16.08
     },
     {
+        "month": "Nov-24",
+        "val": 20.62
+    },
+    {
+        "month": "Dec-24",
+        "val": 17.21
+    },
+    {
         "month": "Jan-24",
         "val": 35.94
     },
@@ -1518,6 +1862,14 @@
     {
         "month": "Oct-24",
         "val": 16.04
+    },
+    {
+        "month": "Nov-24",
+        "val": 17.21
+    },
+    {
+        "month": "Dec-24",
+        "val": 21.13
     },
     {
         "month": "Jan-24",
@@ -1560,6 +1912,14 @@
         "val": 29.16
     },
     {
+        "month": "Nov-24",
+        "val": 28.28
+    },
+    {
+        "month": "Dec-24",
+        "val": 37.09
+    },
+    {
         "month": "Jan-24",
         "val": 30.07
     },
@@ -1598,6 +1958,14 @@
     {
         "month": "Oct-24",
         "val": 28.07
+    },
+    {
+        "month": "Nov-24",
+        "val": 27.16
+    },
+    {
+        "month": "Dec-24",
+        "val": 34.13
     },
     {
         "month": "Jan-24",
@@ -1640,6 +2008,14 @@
         "val": 31.63
     },
     {
+        "month": "Nov-24",
+        "val": 37.2
+    },
+    {
+        "month": "Dec-24",
+        "val": 41.96
+    },
+    {
         "month": "Jan-24",
         "val": 41.18
     },
@@ -1678,6 +2054,14 @@
     {
         "month": "Oct-24",
         "val": 40.9
+    },
+    {
+        "month": "Nov-24",
+        "val": 36.56
+    },
+    {
+        "month": "Dec-24",
+        "val": 40.2
     },
     {
         "month": "Jan-24",
@@ -1720,6 +2104,14 @@
         "val": 16.37
     },
     {
+        "month": "Nov-24",
+        "val": 15.51
+    },
+    {
+        "month": "Dec-24",
+        "val": 15.6
+    },
+    {
         "month": "Jan-24",
         "val": null
     },
@@ -1758,6 +2150,14 @@
     {
         "month": "Oct-24",
         "val": 47.67
+    },
+    {
+        "month": "Nov-24",
+        "val": 37.51
+    },
+    {
+        "month": "Dec-24",
+        "val": null
     },
     {
         "month": "Jan-24",
@@ -1800,6 +2200,14 @@
         "val": 31.61
     },
     {
+        "month": "Nov-24",
+        "val": 39.2
+    },
+    {
+        "month": "Dec-24",
+        "val": 39.24
+    },
+    {
         "month": "Jan-24",
         "val": 73.48
     },
@@ -1838,6 +2246,14 @@
     {
         "month": "Oct-24",
         "val": 30.34
+    },
+    {
+        "month": "Nov-24",
+        "val": 25.57
+    },
+    {
+        "month": "Dec-24",
+        "val": 30.03
     },
     {
         "month": "Jan-24",
@@ -1880,6 +2296,14 @@
         "val": 10.22
     },
     {
+        "month": "Nov-24",
+        "val": 8.04
+    },
+    {
+        "month": "Dec-24",
+        "val": 10.19
+    },
+    {
         "month": "Jan-24",
         "val": 18.22
     },
@@ -1918,6 +2342,14 @@
     {
         "month": "Oct-24",
         "val": 23.67
+    },
+    {
+        "month": "Nov-24",
+        "val": 24.58
+    },
+    {
+        "month": "Dec-24",
+        "val": 29.58
     },
     {
         "month": "Jan-24",
@@ -1960,6 +2392,14 @@
         "val": 26.18
     },
     {
+        "month": "Nov-24",
+        "val": 34.59
+    },
+    {
+        "month": "Dec-24",
+        "val": 31.78
+    },
+    {
         "month": "Jan-24",
         "val": 12.49
     },
@@ -1998,6 +2438,14 @@
     {
         "month": "Oct-24",
         "val": 14.47
+    },
+    {
+        "month": "Nov-24",
+        "val": 15.14
+    },
+    {
+        "month": "Dec-24",
+        "val": 14.92
     },
     {
         "month": "Jan-24",
@@ -2040,6 +2488,14 @@
         "val": 40.52
     },
     {
+        "month": "Nov-24",
+        "val": 44.11
+    },
+    {
+        "month": "Dec-24",
+        "val": 53.12
+    },
+    {
         "month": "Jan-24",
         "val": null
     },
@@ -2078,6 +2534,14 @@
     {
         "month": "Oct-24",
         "val": 43.98
+    },
+    {
+        "month": "Nov-24",
+        "val": 48.07
+    },
+    {
+        "month": "Dec-24",
+        "val": null
     },
     {
         "month": "Jan-24",
@@ -2120,6 +2584,14 @@
         "val": 57.8
     },
     {
+        "month": "Nov-24",
+        "val": 52.69
+    },
+    {
+        "month": "Dec-24",
+        "val": 53.69
+    },
+    {
         "month": "Jan-24",
         "val": null
     },
@@ -2158,6 +2630,14 @@
     {
         "month": "Oct-24",
         "val": 48.73
+    },
+    {
+        "month": "Nov-24",
+        "val": 52.89
+    },
+    {
+        "month": "Dec-24",
+        "val": 51.39
     },
     {
         "month": "Jan-24",
@@ -2200,6 +2680,14 @@
         "val": 19.6
     },
     {
+        "month": "Nov-24",
+        "val": 26.3
+    },
+    {
+        "month": "Dec-24",
+        "val": 31.42
+    },
+    {
         "month": "Jan-24",
         "val": null
     },
@@ -2237,6 +2725,14 @@
     },
     {
         "month": "Oct-24",
+        "val": null
+    },
+    {
+        "month": "Nov-24",
+        "val": null
+    },
+    {
+        "month": "Dec-24",
         "val": null
     },
     {
@@ -2280,6 +2776,14 @@
         "val": 42.88
     },
     {
+        "month": "Nov-24",
+        "val": 43.09
+    },
+    {
+        "month": "Dec-24",
+        "val": 52.69
+    },
+    {
         "month": "Jan-24",
         "val": 18.82
     },
@@ -2317,6 +2821,14 @@
     },
     {
         "month": "Oct-24",
+        "val": null
+    },
+    {
+        "month": "Nov-24",
+        "val": null
+    },
+    {
+        "month": "Dec-24",
         "val": null
     },
     {
@@ -2360,6 +2872,14 @@
         "val": 14.71
     },
     {
+        "month": "Nov-24",
+        "val": 13.8
+    },
+    {
+        "month": "Dec-24",
+        "val": 8.13
+    },
+    {
         "month": "Jan-24",
         "val": 29.59
     },
@@ -2398,6 +2918,14 @@
     {
         "month": "Oct-24",
         "val": 22.79
+    },
+    {
+        "month": "Nov-24",
+        "val": 23.42
+    },
+    {
+        "month": "Dec-24",
+        "val": 35.7
     },
     {
         "month": "Jan-24",
@@ -2440,6 +2968,14 @@
         "val": 32.63
     },
     {
+        "month": "Nov-24",
+        "val": 25.18
+    },
+    {
+        "month": "Dec-24",
+        "val": 23.54
+    },
+    {
         "month": "Jan-24",
         "val": 28.52
     },
@@ -2478,6 +3014,14 @@
     {
         "month": "Oct-24",
         "val": 52.88
+    },
+    {
+        "month": "Nov-24",
+        "val": 46.79
+    },
+    {
+        "month": "Dec-24",
+        "val": 50.83
     },
     {
         "month": "Jan-24",
@@ -2520,6 +3064,14 @@
         "val": 40.6
     },
     {
+        "month": "Nov-24",
+        "val": 43.87
+    },
+    {
+        "month": "Dec-24",
+        "val": 50.37
+    },
+    {
         "month": "Jan-24",
         "val": 16.4
     },
@@ -2558,6 +3110,14 @@
     {
         "month": "Oct-24",
         "val": 17.0
+    },
+    {
+        "month": "Nov-24",
+        "val": 17.39
+    },
+    {
+        "month": "Dec-24",
+        "val": 20.42
     },
     {
         "month": "Jan-24",
@@ -2600,6 +3160,14 @@
         "val": 19.55
     },
     {
+        "month": "Nov-24",
+        "val": 15.75
+    },
+    {
+        "month": "Dec-24",
+        "val": 20.87
+    },
+    {
         "month": "Jan-24",
         "val": 21.05
     },
@@ -2638,6 +3206,14 @@
     {
         "month": "Oct-24",
         "val": 28.36
+    },
+    {
+        "month": "Nov-24",
+        "val": 24.89
+    },
+    {
+        "month": "Dec-24",
+        "val": 27.85
     },
     {
         "month": "Jan-24",
@@ -2680,6 +3256,14 @@
         "val": 24.54
     },
     {
+        "month": "Nov-24",
+        "val": 21.26
+    },
+    {
+        "month": "Dec-24",
+        "val": 22.72
+    },
+    {
         "month": "Jan-24",
         "val": 29.82
     },
@@ -2718,6 +3302,14 @@
     {
         "month": "Oct-24",
         "val": 46.6
+    },
+    {
+        "month": "Nov-24",
+        "val": 60.52
+    },
+    {
+        "month": "Dec-24",
+        "val": 62.63
     },
     {
         "month": "Jan-24",
@@ -2760,6 +3352,14 @@
         "val": 16.98
     },
     {
+        "month": "Nov-24",
+        "val": 16.03
+    },
+    {
+        "month": "Dec-24",
+        "val": 18.25
+    },
+    {
         "month": "Jan-24",
         "val": 22.27
     },
@@ -2798,6 +3398,14 @@
     {
         "month": "Oct-24",
         "val": 19.69
+    },
+    {
+        "month": "Nov-24",
+        "val": 26.29
+    },
+    {
+        "month": "Dec-24",
+        "val": 33.21
     },
     {
         "month": "Jan-24",
@@ -2840,6 +3448,14 @@
         "val": 22.8
     },
     {
+        "month": "Nov-24",
+        "val": 23.95
+    },
+    {
+        "month": "Dec-24",
+        "val": 28.11
+    },
+    {
         "month": "Jan-24",
         "val": 29.55
     },
@@ -2880,84 +3496,12 @@
         "val": 20.24
     },
     {
-        "month": "Jan-24",
-        "val": 28.64
+        "month": "Nov-24",
+        "val": 19.43
     },
     {
-        "month": "Feb-24",
-        "val": 21.76
-    },
-    {
-        "month": "Mar-24",
-        "val": 21.77
-    },
-    {
-        "month": "Apr-24",
-        "val": 26.6
-    },
-    {
-        "month": "May-24",
-        "val": 18.17
-    },
-    {
-        "month": "Jun-24",
-        "val": 19.39
-    },
-    {
-        "month": "Jul-24",
-        "val": 22.05
-    },
-    {
-        "month": "Aug-24",
-        "val": 27.35
-    },
-    {
-        "month": "Sep-24",
-        "val": 27.82
-    },
-    {
-        "month": "Oct-24",
-        "val": 26.32
-    },
-    {
-        "month": "Jan-24",
-        "val": 42.48
-    },
-    {
-        "month": "Feb-24",
-        "val": 34.93
-    },
-    {
-        "month": "Mar-24",
-        "val": 34.58
-    },
-    {
-        "month": "Apr-24",
-        "val": 33.53
-    },
-    {
-        "month": "May-24",
-        "val": 47.84
-    },
-    {
-        "month": "Jun-24",
-        "val": 24.21
-    },
-    {
-        "month": "Jul-24",
-        "val": 26.43
-    },
-    {
-        "month": "Aug-24",
-        "val": 23.84
-    },
-    {
-        "month": "Sep-24",
-        "val": 42.2
-    },
-    {
-        "month": "Oct-24",
-        "val": 38.62
+        "month": "Dec-24",
+        "val": 27.3
     },
     {
         "month": "Jan-24",
@@ -3000,6 +3544,110 @@
         "val": 11.9
     },
     {
+        "month": "Nov-24",
+        "val": 12.52
+    },
+    {
+        "month": "Dec-24",
+        "val": 10.86
+    },
+    {
+        "month": "Jan-24",
+        "val": 28.64
+    },
+    {
+        "month": "Feb-24",
+        "val": 21.76
+    },
+    {
+        "month": "Mar-24",
+        "val": 21.77
+    },
+    {
+        "month": "Apr-24",
+        "val": 26.6
+    },
+    {
+        "month": "May-24",
+        "val": 18.17
+    },
+    {
+        "month": "Jun-24",
+        "val": 19.39
+    },
+    {
+        "month": "Jul-24",
+        "val": 22.05
+    },
+    {
+        "month": "Aug-24",
+        "val": 27.35
+    },
+    {
+        "month": "Sep-24",
+        "val": 27.82
+    },
+    {
+        "month": "Oct-24",
+        "val": 26.32
+    },
+    {
+        "month": "Nov-24",
+        "val": 23.82
+    },
+    {
+        "month": "Dec-24",
+        "val": 32.57
+    },
+    {
+        "month": "Jan-24",
+        "val": 42.48
+    },
+    {
+        "month": "Feb-24",
+        "val": 34.93
+    },
+    {
+        "month": "Mar-24",
+        "val": 34.58
+    },
+    {
+        "month": "Apr-24",
+        "val": 33.53
+    },
+    {
+        "month": "May-24",
+        "val": 47.84
+    },
+    {
+        "month": "Jun-24",
+        "val": 24.21
+    },
+    {
+        "month": "Jul-24",
+        "val": 26.43
+    },
+    {
+        "month": "Aug-24",
+        "val": 23.84
+    },
+    {
+        "month": "Sep-24",
+        "val": 42.2
+    },
+    {
+        "month": "Oct-24",
+        "val": 38.62
+    },
+    {
+        "month": "Nov-24",
+        "val": 31.75
+    },
+    {
+        "month": "Dec-24",
+        "val": 42.24
+    },
+    {
         "month": "Jan-24",
         "val": 18.27
     },
@@ -3038,6 +3686,14 @@
     {
         "month": "Oct-24",
         "val": 24.51
+    },
+    {
+        "month": "Nov-24",
+        "val": 26.84
+    },
+    {
+        "month": "Dec-24",
+        "val": 20.12
     },
     {
         "month": "Jan-24",
@@ -3080,6 +3736,14 @@
         "val": 8.69
     },
     {
+        "month": "Nov-24",
+        "val": 6.45
+    },
+    {
+        "month": "Dec-24",
+        "val": 7.59
+    },
+    {
         "month": "Jan-24",
         "val": 23.08
     },
@@ -3120,6 +3784,14 @@
         "val": 17.81
     },
     {
+        "month": "Nov-24",
+        "val": 13.94
+    },
+    {
+        "month": "Dec-24",
+        "val": 14.5
+    },
+    {
         "month": "Jan-24",
         "val": null
     },
@@ -3158,5 +3830,61 @@
     {
         "month": "Oct-24",
         "val": 39.69
+    },
+    {
+        "month": "Nov-24",
+        "val": 39.13
+    },
+    {
+        "month": "Dec-24",
+        "val": 38.69
+    },
+    {
+        "month": "Jan-24",
+        "val": 23.08
+    },
+    {
+        "month": "Feb-24",
+        "val": 16.24
+    },
+    {
+        "month": "Mar-24",
+        "val": 20.15
+    },
+    {
+        "month": "Apr-24",
+        "val": 9.72
+    },
+    {
+        "month": "May-24",
+        "val": 12.49
+    },
+    {
+        "month": "Jun-24",
+        "val": 11.86
+    },
+    {
+        "month": "Jul-24",
+        "val": 17.15
+    },
+    {
+        "month": "Aug-24",
+        "val": 16.83
+    },
+    {
+        "month": "Sep-24",
+        "val": 16.97
+    },
+    {
+        "month": "Oct-24",
+        "val": 22.06
+    },
+    {
+        "month": "Nov-24",
+        "val": 19.84
+    },
+    {
+        "month": "Dec-24",
+        "val": 20.26
     }
 ]

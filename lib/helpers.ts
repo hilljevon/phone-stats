@@ -136,7 +136,7 @@ export const notReadyCategorized = [
 ]
 // This function was initialized to produce our month by month breakdown according phone stat goals. Import the respective JSON file and run to print out Rechart-friendly objects
 export const organizeBarChartData = async () => {
-    const res = await fetch("/data/absences_data.json")
+    const res = await fetch("/data/answered_calls.json")
     const jsonData: any[] = await res.json();
     const chartData = [
         { month: "Jan-24", below: 0, middle: 0, above: 0 },
@@ -149,20 +149,23 @@ export const organizeBarChartData = async () => {
         { month: "Aug-24", below: 0, middle: 0, above: 0 },
         { month: "Sep-24", below: 0, middle: 0, above: 0 },
         { month: "Oct-24", below: 0, middle: 0, above: 0 },
+        { month: "Nov-24", below: 0, middle: 0, above: 0 },
+        { month: "Dec-24", below: 0, middle: 0, above: 0 },
     ]
     console.log("JSON DATA HERE", jsonData)
     jsonData.forEach((data) => {
         const resEntry = chartData.find((entry) => entry.month == data.month)
         if (resEntry) {
-            if (data.val < 26) {
+            if (data.val > 79) {
                 return resEntry.above++
-            } else if (data.val < 40) {
+            } else if (data.val > 69) {
                 return resEntry.middle++
             } else {
                 return resEntry.below++
             }
         }
     })
+    console.log("Answered Call chart data here", chartData)
 }
 // When clicking on a stacked bar, this handles the data and returns important analytics for the respective month
 export const handleBarClickAnalytics = (data: StackedBarChartInterface, idx: number, type: string) => {
@@ -204,7 +207,7 @@ export const getAverageFromMonthValArray = async (month: string) => {
 }
 
 export const handleEmployeeData = (data: EmployeeType) => {
-    const months = ["Jan-24", "Feb-24", "Mar-24", "Apr-24", "May-24", "Jun-24", "Jul-24", "Aug-24", "Sep-24", "Oct-24"]
+    const months = ["Jan-24", "Feb-24", "Mar-24", "Apr-24", "May-24", "Jun-24", "Jul-24", "Aug-24", "Sep-24", "Oct-24", "Nov-24", "Dec-24"]
     const callMetrics = ["Answered Call %", "Not Ready %"]
     const phoneData = []
     for (let month of months) {
@@ -218,7 +221,7 @@ export const handleEmployeeData = (data: EmployeeType) => {
     return phoneData
 }
 export const handleEmployeeAttendance = (data: EmployeeType) => {
-    const months = ["Jan-24", "Feb-24", "Mar-24", "Apr-24", "May-24", "Jun-24", "Jul-24", "Aug-24", "Sep-24", "Oct-24"]
+    const months = ["Jan-24", "Feb-24", "Mar-24", "Apr-24", "May-24", "Jun-24", "Jul-24", "Aug-24", "Sep-24", "Oct-24", "Nov-24", "Dec-24"]
     const callMetrics = ["Tardies", "Absences"]
     const attendanceData = []
     for (let month of months) {

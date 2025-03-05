@@ -47,6 +47,10 @@ export interface EmployeeType {
     "Oct-24 Not Ready %": number
     "Oct-24 Tardies": number
     "Oct-24 Absences": number
+    "Nov-24 Tardies": number
+    "Nov-24 Absences": number
+    "Dec-24 Tardies": number
+    "Dec-24 Absences": number
     "Employee ID": number
 }
 

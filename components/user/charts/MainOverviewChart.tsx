@@ -40,20 +40,26 @@ const chartConfig = {
     caseAvg: {
         label: "Case Averages",
         color: "hsl(var(--chart-5))",
+    },
+    qi_avg: {
+        label: "QI Averages",
+        color: "hsl(var(--chart-6))",
     }
 } satisfies ChartConfig
 // Main data used to produce averages
 const average_data = [
-    { month: "Jan-24", answeredCallPercent: 74.67, notReadyPercent: 27.16, absenceSum: 23, tardiesSum: 71, caseAvg: 516 },
-    { month: "Feb-24", answeredCallPercent: 73.72, notReadyPercent: 22.61, absenceSum: 31, tardiesSum: 87, caseAvg: 396 },
-    { month: "Mar-24", answeredCallPercent: 76.01, notReadyPercent: 22.41, absenceSum: 36, tardiesSum: 52, caseAvg: 379 },
-    { month: "Apr-24", answeredCallPercent: 75.77, notReadyPercent: 25.61, absenceSum: 43, tardiesSum: 83, caseAvg: 407 },
-    { month: "May-24", answeredCallPercent: 77.11, notReadyPercent: 22.89, absenceSum: 35, tardiesSum: 63, caseAvg: 382 },
-    { month: "Jun-24", answeredCallPercent: 76.5, notReadyPercent: 22.31, absenceSum: 39, tardiesSum: 66, caseAvg: 364 },
-    { month: "Jul-24", answeredCallPercent: 87.75, notReadyPercent: 25.25, absenceSum: 38, tardiesSum: 104, caseAvg: 381 },
-    { month: "Aug-24", answeredCallPercent: 86.56, notReadyPercent: 27.16, absenceSum: 24, tardiesSum: 40, caseAvg: 396 },
-    { month: "Sep-24", answeredCallPercent: 83.61, notReadyPercent: 27.64, absenceSum: 37, tardiesSum: 46, caseAvg: 391 },
-    { month: "Oct-24", answeredCallPercent: 87.22, notReadyPercent: 27, absenceSum: 36, tardiesSum: 90, caseAvg: 400 },
+    { month: "Jan-24", answeredCallPercent: 74.67, notReadyPercent: 27.16, absenceSum: 23, tardiesSum: 71, caseAvg: 516, qi_avg: null },
+    { month: "Feb-24", answeredCallPercent: 73.72, notReadyPercent: 22.61, absenceSum: 31, tardiesSum: 87, caseAvg: 396, qi_avg: null },
+    { month: "Mar-24", answeredCallPercent: 76.01, notReadyPercent: 22.41, absenceSum: 36, tardiesSum: 52, caseAvg: 379, qi_avg: 92.5 },
+    { month: "Apr-24", answeredCallPercent: 75.77, notReadyPercent: 25.61, absenceSum: 43, tardiesSum: 83, caseAvg: 407, qi_avg: 91.89 },
+    { month: "May-24", answeredCallPercent: 77.11, notReadyPercent: 22.89, absenceSum: 35, tardiesSum: 63, caseAvg: 382, qi_avg: 90.16 },
+    { month: "Jun-24", answeredCallPercent: 76.5, notReadyPercent: 22.31, absenceSum: 39, tardiesSum: 66, caseAvg: 364, qi_avg: 91.27 },
+    { month: "Jul-24", answeredCallPercent: 87.75, notReadyPercent: 25.25, absenceSum: 38, tardiesSum: 104, caseAvg: 381, qi_avg: 92.20 },
+    { month: "Aug-24", answeredCallPercent: 86.56, notReadyPercent: 27.16, absenceSum: 24, tardiesSum: 40, caseAvg: 396, qi_avg: 91.07 },
+    { month: "Sep-24", answeredCallPercent: 83.61, notReadyPercent: 27.64, absenceSum: 37, tardiesSum: 46, caseAvg: 391, qi_avg: 92.85 },
+    { month: "Oct-24", answeredCallPercent: 87.22, notReadyPercent: 27, absenceSum: 36, tardiesSum: 90, caseAvg: 400, qi_avg: 93.54 },
+    { month: "Nov-24", answeredCallPercent: 88.08, notReadyPercent: 26.98, absenceSum: 27, tardiesSum: 68, caseAvg: 400, qi_avg: 94.33 },
+    { month: "Dec-24", answeredCallPercent: 86.02, notReadyPercent: 29.83, absenceSum: 38, tardiesSum: 71, caseAvg: 400, qi_avg: 95.30 },
 ]
 
 const barChartConfig = {
@@ -80,16 +86,17 @@ export function MainOverviewChart() {
     const [activeChart, setActiveChart] =
         useState<keyof typeof chartConfig>("answeredCallPercent")
 
-    const total = useMemo(
-        () => ({
-            answeredCallPercent: average_data.reduce((acc, curr) => acc + curr.answeredCallPercent, 0),
-            notReadyPercent: average_data.reduce((acc, curr) => acc + curr.notReadyPercent, 0),
-            absenceSum: average_data.reduce((acc, curr) => acc + curr.absenceSum, 0),
-            tardiesSum: average_data.reduce((acc, curr) => acc + curr.tardiesSum, 0),
-            caseAvg: 401
-        }),
-        []
-    )
+    // const total = useMemo(
+    //     () => ({
+    //         answeredCallPercent: average_data.reduce((acc, curr) => acc + curr.answeredCallPercent, 0),
+    //         notReadyPercent: average_data.reduce((acc, curr) => acc + curr.notReadyPercent, 0),
+    //         absenceSum: average_data.reduce((acc, curr) => acc + curr.absenceSum, 0),
+    //         tardiesSum: average_data.reduce((acc, curr) => acc + curr.tardiesSum, 0),
+    //         qi_avg: average_data.reduce((acc, curr) => acc + curr.qi_avg, 0),
+    //         caseAvg: 401
+    //     }),
+    //     []
+    // )
     // Function determines y axis bounds so incremental changes in data is noticeable.
     const determneYAxis = () => {
         if (activeChart == "answeredCallPercent") {
@@ -98,7 +105,10 @@ export function MainOverviewChart() {
             return [19, 30]
         } else if (activeChart == "absenceSum") {
             return [20, 50]
-        } else {
+        } else if (activeChart == "qi_avg") {
+            return [90, 96]
+        }
+        else {
             return [30, 110]
         }
     }
@@ -108,6 +118,13 @@ export function MainOverviewChart() {
             return "linear"
         } else {
             return "natural"
+        }
+    }
+    const determineDataSubset = () => {
+        if (activeChart == "qi_avg") {
+            return average_data.slice(3)
+        } else {
+            return average_data
         }
     }
     // Upon launch, we grab our case census data.
@@ -131,7 +148,7 @@ export function MainOverviewChart() {
                             Case Census Through 2024
                         </CardTitle>
                         <CardDescription>
-                            Categorized by month, from Jan-2024 to Oct-2024
+                            Categorized by month, from Jan-2024 to Dec-2024. Click a tab to switch insights.
                         </CardDescription>
                     </div>
                 ) : (
@@ -143,25 +160,34 @@ export function MainOverviewChart() {
                                         Answered Call Averages Through 2024
                                     </CardTitle>
                                     <CardDescription>
-                                        Categorized by month, from Jan-2024 to Oct-2024
+                                        Categorized by month. Select a tab to switch insights.
                                     </CardDescription>
                                 </>
                             ) : (activeChart == "tardiesSum") ? (
                                 <>
                                     <CardTitle>
-                                        Tardies Sum
+                                        Tardies Through 2024
                                     </CardTitle>
                                     <CardDescription>
-                                        Sum of all tardies from Jan-2024 to Oct-2024
+                                        Sum of all tardies. Select a tab to switch insights.
                                     </CardDescription>
                                 </>
                             ) : (activeChart == "absenceSum") ? (
                                 <>
                                     <CardTitle>
-                                        Absences Sum
+                                        Absences Through 2024
                                     </CardTitle>
                                     <CardDescription>
-                                        Sum of all absences from Jan-2024 to Oct-2024
+                                        Sum of all absences. Select a tab to switch insights.
+                                    </CardDescription>
+                                </>
+                            ) : (activeChart == "qi_avg") ? (
+                                <>
+                                    <CardTitle>
+                                        QI Averages
+                                    </CardTitle>
+                                    <CardDescription>
+                                        Average QI Scores. Select a tab to switch insights.
                                     </CardDescription>
                                 </>
                             ) : (
@@ -170,7 +196,7 @@ export function MainOverviewChart() {
                                         Not Ready % Averages Through 2024
                                     </CardTitle>
                                     <CardDescription>
-                                        Categorized by month, from Jan-2024 to Oct-2024
+                                        Categorized by month. Select a tab to switch insights.
                                     </CardDescription>
                                 </>
                             )}
@@ -257,6 +283,22 @@ export function MainOverviewChart() {
                         </span>
                         <span className="text-lg font-bold leading-none sm:text-3xl">
                             400
+                        </span>
+                    </button>
+                    <button
+                        data-active={activeChart === "qi_avg"}
+                        className="relative z-30 flex flex-1 flex-col justify-center gap-1 border-t px-6 py-4 text-left even:border-l data-[active=true]:bg-muted/50 sm:border-l sm:border-t-0 sm:px-8 sm:py-6"
+                        onClick={() => {
+                            setBarChartActive(false)
+                            setActiveChart("qi_avg")
+                            handleChartSwitch("qi_avg")
+                        }}
+                    >
+                        <span className="text-xs text-muted-foreground">
+                            QI
+                        </span>
+                        <span className="text-lg font-bold leading-none sm:text-3xl">
+                            92.5
                         </span>
                     </button>
                 </div>

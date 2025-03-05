@@ -25,6 +25,11 @@ const allCards = [
     title: "Answered Call % By Month",
     months: [
       {
+        month: 'Nov-24',
+        data: 88.06,
+
+      },
+      {
         month: 'Jul-24',
         data: 87.75,
 
@@ -36,6 +41,11 @@ const allCards = [
       {
         month: 'Aug-24',
         data: 86.56,
+      },
+      {
+        month: 'Dec-24',
+        data: 86.02,
+
       },
       {
         month: 'Sep-24',
@@ -101,6 +111,10 @@ const allCards = [
         data: 25.61,
       },
       {
+        month: 'Nov-24',
+        data: 26.98,
+      },
+      {
         month: 'Oct-24',
         data: 27,
       },
@@ -115,7 +129,11 @@ const allCards = [
       {
         month: 'Sep-24',
         data: 27.64,
-      }
+      },
+      {
+        month: 'Dec-24',
+        data: 29.83,
+      },
     ],
     caption: "A Low Not Ready % corresponds to more users answering calls."
   },
@@ -131,6 +149,10 @@ const allCards = [
         month: 'Aug-24',
         data: 24,
 
+      },
+      {
+        month: 'Nov-24',
+        data: 27,
       },
       {
         month: 'Feb-24',
@@ -157,6 +179,10 @@ const allCards = [
 
         data: 37,
 
+      },
+      {
+        month: 'Dec-24',
+        data: 38,
       },
       {
         month: 'Jul-24',
@@ -199,7 +225,15 @@ const allCards = [
         data: 66
       },
       {
+        month: 'Nov-24',
+        data: 68
+      },
+      {
         month: 'Jan-24',
+        data: 71
+      },
+      {
+        month: 'Dec-24',
         data: 71
       },
       {

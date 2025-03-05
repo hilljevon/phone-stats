@@ -16,7 +16,6 @@ import {
 } from "@/components/ui/sidebar"
 import EmployeeDashboard from '@/components/user/EmployeeDashboard'
 
-
 const page = async () => {
     return (
         <>

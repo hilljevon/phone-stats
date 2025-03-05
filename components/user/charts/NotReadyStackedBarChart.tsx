@@ -21,7 +21,7 @@ import {
 } from "@/components/ui/chart"
 import { Slider } from "@/components/ui/slider"
 import { useEffect, useState } from "react"
-import { handleBarClickAnalytics } from "@/lib/helpers"
+import { handleBarClickAnalytics, organizeBarChartData } from "@/lib/helpers"
 
 export const notReadyCategorized = [
     {
@@ -83,7 +83,20 @@ export const notReadyCategorized = [
         "below": 13,
         "middle": 25,
         "above": 42
-    }
+    },
+    {
+        "month": "Nov-24",
+        "below": 13,
+        "middle": 19,
+        "above": 49
+    },
+    {
+        "month": "Dec-24",
+        "below": 15,
+        "middle": 26,
+        "above": 40
+    },
+
 ]
 const chartConfig = {
     above: {
@@ -131,7 +144,12 @@ export function NotReadyStackedBarChart() {
         const analytics = handleBarClickAnalytics(data, idx, "notReady")
         setNotReadyAnalytics(analytics)
     }
-
+    useEffect(() => {
+        const getStats = async () => {
+            await organizeBarChartData()
+        }
+        getStats()
+    }, [])
     return (
         <Card>
             {currentData == undefined ? (
