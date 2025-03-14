@@ -58,8 +58,8 @@ const average_data = [
     { month: "Aug-24", answeredCallPercent: 86.56, notReadyPercent: 27.16, absenceSum: 24, tardiesSum: 40, caseAvg: 396, qi_avg: 91.07 },
     { month: "Sep-24", answeredCallPercent: 83.61, notReadyPercent: 27.64, absenceSum: 37, tardiesSum: 46, caseAvg: 391, qi_avg: 92.85 },
     { month: "Oct-24", answeredCallPercent: 87.22, notReadyPercent: 27, absenceSum: 36, tardiesSum: 90, caseAvg: 400, qi_avg: 93.54 },
-    { month: "Nov-24", answeredCallPercent: 88.08, notReadyPercent: 26.98, absenceSum: 27, tardiesSum: 68, caseAvg: 400, qi_avg: 94.33 },
-    { month: "Dec-24", answeredCallPercent: 86.02, notReadyPercent: 29.83, absenceSum: 38, tardiesSum: 71, caseAvg: 400, qi_avg: 95.30 },
+    { month: "Nov-24", answeredCallPercent: 88.08, notReadyPercent: 26.98, absenceSum: 27, tardiesSum: 68, caseAvg: 391, qi_avg: 94.33 },
+    { month: "Dec-24", answeredCallPercent: 86.02, notReadyPercent: 29.83, absenceSum: 38, tardiesSum: 71, caseAvg: 457, qi_avg: 95.30 },
 ]
 
 const barChartConfig = {

@@ -75,14 +75,7 @@ const average_data = [
     { month: "Oct-24", answeredCallPercent: 87.22, notReadyPercent: 27, absenceSum: 36, tardiesSum: 90 },
 ]
 const metricCategories = ["answeredCallPercent", "month", "notReadyPercent", "absenceSum", "tardiesSum"]
-// const dataCards = [
-//     {
-//         title: "Tardies Ranked",
-//         rank1: "August",
-//         rank2: "September",
-//         rank3: 
-//     }
-// ]
+
 const chartConfig2 = {
     visitors: {
         label: "Cases",

@@ -307,7 +307,6 @@ export default function Page() {
               <StackedAreaChart />
             </div>
             <div className="col-span-full">
-
             </div>
             <div className="col-span-full mt-4">
               <MovingCards
