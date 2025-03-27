@@ -100,12 +100,6 @@ const MainScheduleComponent = () => {
                     accept=".xlsx,.xls"
                     onChange={handleFileUpload}
                 />
-                <Button onClick={() => {
-                    navigator.clipboard.writeText(formattedString)
-                    toast("Copied!")
-                }}>
-                    Copy
-                </Button>
             </div>
             <div className="col-span-full">
                 {columns && (
