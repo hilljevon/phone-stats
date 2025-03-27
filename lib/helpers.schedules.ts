@@ -1,3 +1,6 @@
+import TableColumns from "@/components/user/schedule/TableColumns";
+import { ColumnDef } from "@tanstack/react-table"
+
 function extractRowCount(range: string): number {
     const match = range.match(/\d+$/); // Match the last sequence of digits in the string
     return match ? parseInt(match[0], 10) : 4;
@@ -16,7 +19,7 @@ export function handleExcelSchedules(schedule: any) {
     // our raw data. after entering all row data, this will be alphabetized by last name
     let unsortedData: any = []
     // our initial colDefs. it will begin as an array of calendar dates, but we need to add an initial column
-    const colDefs = [{ field: "name", flex: 2.5, cellStyle: { border: '1px solid black' }, headerName: "Name" }]
+    const colDefs: any[] = []
     // ExtractRowCount returns the number of rows for that respective excel sheet. Used so we don't have index error
     const lastCell = extractRowCount(schedule["!ref"])
     for (let i = 2; i < lastCell; i++) {
@@ -37,13 +40,34 @@ export function handleExcelSchedules(schedule: any) {
         // if we have not logged this current date yet
         if (!dates.includes(currentDate)) {
             // add it to our colDefs so it is a new column
-            colDefs.push({ field: currentDate, flex: 1, cellStyle: { border: '1px solid black' }, headerName: currentDate.slice(5) })
+            colDefs.push({
+                field: currentDate,
+                headerName: currentDate.slice(5),
+            })
             // push to our dates array for this if check
             dates.push(currentDate)
         }
     }
-    console.log("Data here", unsortedData)
+    const columns = TableColumns(colDefs)
+    console.log("Col defs here", colDefs)
     // alphabetize our data by last name
-    const data = [...unsortedData].sort((a, b) => a.name.localeCompare(b.name));
-    return { colDefs, data }
+    const incompleteData = [...unsortedData].sort((a, b) => a.name.localeCompare(b.name));
+    const datesOnly = colDefs.map((colDef) => colDef.field)
+    // map through each employee object
+    const data = incompleteData.map((employee) => {
+        const newEmployeeObject: any = { name: employee.name }
+        // go through each date
+        datesOnly.forEach((date) => {
+            // check if the employee is working on the current date iteration
+            if (employee[date]) {
+                // if we want to eventually change value to current shift, here is where it would take place
+                newEmployeeObject[date] = "X"
+            } else {
+                newEmployeeObject[date] = ""
+            }
+        })
+        return newEmployeeObject
+    })
+    console.log("data with all dates", data)
+    return { colDefs, data, columns }
 }
