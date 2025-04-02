@@ -14,6 +14,8 @@ export function handleExcelSchedules(schedule: any) {
     const dateKey = "J";
     // This is the row for the last name 
     const lastNameKey = "G"
+    // This is the row for the shift name 
+    const shiftNameKey = "C"
     // dates is used as a check to see which date iteration we are on so we may create a new column if changed.
     const dates: any[] = []
     // our raw data. after entering all row data, this will be alphabetized by last name
@@ -27,15 +29,17 @@ export function handleExcelSchedules(schedule: any) {
         const currentDate = schedule[`${dateKey}${i}`]["v"]
         // Retrieve current name iteration
         const currentName = schedule[`${lastNameKey}${i}`]["v"]
+        // Retrieve shift name
+        const currentShift = schedule[`${shiftNameKey}${i}`]["v"]
         // Check if this user is already logged in our data array
         const matchedObject = unsortedData.find((item: any) => item.name == currentName)
         // if previous schedule entry exists for this user
         if (matchedObject) {
             // add current date entry
-            matchedObject[currentDate] = "X"
+            matchedObject[currentDate] = currentShift
         } else {
             // otherwise, add this current user in our data and add the current schedule date
-            unsortedData.push({ name: currentName, [currentDate]: "X" })
+            unsortedData.push({ name: currentName, [currentDate]: currentShift })
         }
         // if we have not logged this current date yet
         if (!dates.includes(currentDate)) {
@@ -49,7 +53,6 @@ export function handleExcelSchedules(schedule: any) {
         }
     }
     const columns = TableColumns(colDefs)
-    console.log("Col defs here", colDefs)
     // alphabetize our data by last name
     const incompleteData = [...unsortedData].sort((a, b) => a.name.localeCompare(b.name));
     const datesOnly = colDefs.map((colDef) => colDef.field)
@@ -61,13 +64,12 @@ export function handleExcelSchedules(schedule: any) {
             // check if the employee is working on the current date iteration
             if (employee[date]) {
                 // if we want to eventually change value to current shift, here is where it would take place
-                newEmployeeObject[date] = "X"
+                newEmployeeObject[date] = employee[date]
             } else {
                 newEmployeeObject[date] = ""
             }
         })
         return newEmployeeObject
     })
-    console.log("data with all dates", data)
     return { colDefs, data, columns }
 }
